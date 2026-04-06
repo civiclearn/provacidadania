@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Provacidadania.pt – Prepare-se para a prova de conhecimentos cívicos</title>
+
+  <!-- ===============================
+     SEO META
+  ================================== -->
+  <meta name="description" content="Prepare-se para a nova prova de conhecimentos cívicos para a cidadania portuguesa. 800 perguntas em 5 temas: história, cultura, política, direitos e sociedade. €49, acesso vitalício.">
+  <meta name="keywords" content="prova cidadania portuguesa, teste conhecimentos cívicos, cidadania portugal, naturalização portugal, lei da nacionalidade 2026">
+
+  <link rel="canonical" href="https://provacidadania.pt/">
+
+  <!-- ===============================
+     OPEN GRAPH
+  ================================== -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_PT">
+  <meta property="og:title" content="Prepare-se para a prova de cidadania — Provacidadania.pt">
+  <meta property="og:description" content="800 perguntas em 5 temas sobre Portugal. Simulações de exame, flashcards e progresso por tema. €49, pagamento único.">
+  <meta property="og:url" content="https://provacidadania.pt/">
+  <meta property="og:image" content="https://provacidadania.pt/assets/images/og-default.jpg">
+
+  <!-- ===============================
+     TWITTER CARD
+  ================================== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Prepare-se para a prova de cidadania — Provacidadania.pt">
+  <meta name="twitter:description" content="800 perguntas em 5 temas. Simulações de exame e explicações. Novo requisito para a cidadania portuguesa.">
+  <meta name="twitter:image" content="https://provacidadania.pt/assets/images/og-default.jpg">
+
+  <!-- ===============================
+     JSON-LD
+  ================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Provacidadania.pt",
+    "url": "https://provacidadania.pt/",
+    "description": "Plataforma de preparação para a nova prova de conhecimentos cívicos para a cidadania portuguesa. 800 perguntas, 5 temas, bilingue PT/EN.",
+    "logo": "https://provacidadania.pt/assets/images/pt.svg",
+    "sameAs": ["https://civiclearn.com/portugal/"]
+  }
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/newhome.css">
+
+  <!-- Pricing + bundle styles -->
+  <style>
+    /* ===== PREMIUM PRICING ===== */
+    .premium-pricing {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .pricing-toggle-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.6rem;
+    }
+    .pricing-toggle-btn {
+      padding: 0.6rem 1.6rem;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 2px solid #e0d5f5;
+      background: #fff;
+      color: #5b21b6;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .pricing-toggle-btn.active {
+      background: #7c3aed;
+      color: #fff;
+      border-color: #7c3aed;
+    }
+    .pricing-toggle-btn:hover:not(.active) {
+      background: #f5f0ff;
+    }
+    .bundle-badge {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+    }
+    .pricing-card {
+      background: #ffffff;
+      border-radius: 1.6rem;
+      max-width: 540px;
+      margin: 0 auto;
+      overflow: hidden;
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.08);
+    }
+    .pricing-top {
+      background: linear-gradient(135deg, #efe8ff 0%, #dcc9ff 100%);
+      padding: 2rem 1rem 2.7rem;
+    }
+    .pricing-tag {
+      background: rgba(255, 255, 255, 0.65);
+      padding: 0.45rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #5b21b6;
+      backdrop-filter: blur(6px);
+    }
+    .pricing-price {
+      padding: 1.8rem 1rem 0.8rem;
+    }
+    .pricing-price .amount {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      transition: opacity 0.2s ease;
+    }
+    .pricing-price .subtitle {
+      font-size: 1.05rem;
+      color: #555;
+      margin-top: 0.3rem;
+    }
+    .pricing-price .bundle-saving {
+      display: none;
+      font-size: 0.9rem;
+      color: #166534;
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+    .pricing-price .bundle-saving.visible {
+      display: block;
+    }
+    .pricing-divider {
+      width: 82%;
+      margin: 1.6rem auto;
+      height: 1px;
+      background: rgba(0, 0, 0, 0.07);
+    }
+    /* Feature List */
+    .feature-list {
+      list-style: none;
+      margin: 1.2rem 0 0;
+      padding-left: 5rem;
+      text-align: left;
+    }
+    .feature-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #333;
+      line-height: 1.45;
+      margin-bottom: 0.65rem;
+    }
+    .feature-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.32rem;
+      width: 0.95rem;
+      height: 0.95rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M4.5 10.5 8 14l7.5-8.5' stroke='%236D4AFF' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      opacity: 0.9;
+    }
+    .feature-list .bundle-extra {
+      display: none;
+      color: #166534;
+      font-weight: 600;
+    }
+    .feature-list .bundle-extra.visible {
+      display: list-item;
+    }
+    .pricing-cta {
+      display: block;
+      width: 100%;
+      background: #7c3aed;
+      color: #fff;
+      padding: 1.15rem;
+      text-decoration: none;
+      margin-top: 1.8rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 0;
+      transition: background 0.2s ease;
+    }
+    .pricing-cta:hover {
+      background: #5b21b6;
+    }
+    .pricing-guarantee {
+      margin-top: 1.4rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    /* Stats row */
+    .stats-row {
+      margin-top: 1.2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .stat-box {
+      background: #ffffff;
+      border-radius: 1.2rem;
+      padding: 1.4rem 1.8rem;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      font-size: 0.95rem;
+      color: #555;
+      min-width: 110px;
+    }
+    .stat-box span {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    @media (max-width: 600px) {
+      .pricing-card { margin: 0 1rem; }
+      .feature-list { padding-left: 2rem; margin-left: 0; }
+      .feature-list li { padding-left: 1.2rem; }
+      .stats-row { flex-direction: column; gap: 1rem; }
+      .stat-box { width: 100%; }
+      .pricing-toggle-row { flex-direction: column; align-items: center; }
+    }
+
+    /* ── Status bar mobile fix ── */
+    @media (max-width: 820px) {
+      .exam-status-counter {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        padding: 0.6rem 0 0 !important;
+        border-right: none !important;
+        border-top: 1px solid rgba(0,0,0,0.08) !important;
+      }
+      .count-number {
+        font-size: 2.4rem !important;
+        line-height: 1 !important;
+      }
+      .count-unit {
+        margin-top: 2px !important;
+        text-align: center !important;
+      }
+      .exam-status-row {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0 !important;
+      }
+      .exam-status-text {
+        padding-top: 0.5rem;
+      }
+    }
+
+    /* Portuguese flag progress bar */
+    #inline-progressbar {
+      background: linear-gradient(
+        to right,
+        #006600 0%,
+        #006600 38%,
+        #FF0000 38%,
+        #FF0000 100%
+      ) !important;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="cl-header">
+  <div class="cl-header-inner">
+
+    <a href="/" class="cl-logo">
+      <img src="/assets/images/pt.svg" alt="PT" />
+      <span>Provacidadania.pt</span>
+    </a>
+
+    <nav class="cl-nav">
+      <a href="/teste-gratis/">Teste grátis</a>
+      <a href="/artigos/">Artigos</a>
+      <a href="/contacto/">Contacto</a>
+      <a href="https://civiclearn.com/portugal/login">Entrar</a>
+    </nav>
+
+    <div class="cl-right">
+      <div class="cl-powered">
+        powered by <span>CivicLearn</span>
+      </div>
+      <a href="https://civiclearn.com/portugal/checkout" class="cl-btn">
+        Ativar acesso
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <!-- EXAM STATUS BAR -->
+  <section class="exam-status">
+    <div class="exam-status-inner">
+
+      <!-- ROW 1: Law status -->
+      <div class="exam-status-row">
+        <div class="exam-status-counter" id="status-law-counter">
+          <span class="count-number">✓</span>
+          <span class="count-unit"></span>
+        </div>
+
+        <div class="exam-status-text">
+          <p class="exam-status-sentence" id="status-law-text">
+            A Lei da Nacionalidade foi <strong>aprovada pela Assembleia da República</strong>.
+            <span class="status-pill">Lei aprovada</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- ROW 2: Portaria countdown -->
+      <div class="exam-status-row exam-status-row--registration">
+        <div class="exam-status-counter" id="status-portaria-counter">
+          <span class="count-number">—</span>
+          <span class="count-unit">DIAS</span>
+        </div>
+
+        <div class="exam-status-text">
+          <p class="exam-status-sentence" id="status-portaria-text">
+            Portaria regulamentar esperada em até <strong>90 dias</strong> após promulgação.
+            <span class="status-pill">Pendente</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HERO CENTER CONTENT -->
+  <div class="hero-center hero-center--spaced">
+
+    <h1 class="hero-title">
+      <span>Prepare-se para a prova de cidadania<br></span>
+      e obtenha a nacionalidade portuguesa
+    </h1>
+
+    <p class="hero-subtitle">
+      800 perguntas sobre Portugal em 5 temas: história, cultura, política, direitos e sociedade.<br>
+      Bilingue PT/EN. Comece a estudar antes de o teste oficial ser regulamentado.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://civiclearn.com/portugal/checkout" class="hero-primary-btn">
+        Começar a preparação
+      </a>
+      <a href="/teste-gratis/" class="hero-secondary-btn">
+        Experimentar grátis
+      </a>
+    </div>
+
+    <div class="hero-social">
+      <div class="hero-social-top">
+        <span class="rating-stars">★★★★★</span>
+        <span class="rating-word">Excelente</span>
+      </div>
+      <div class="hero-social-sub">
+        Milhares de candidatos preparados<br class="mobile-only">pela rede CivicLearn.
+      </div>
+    </div>
+
+    <style>
+      .hero-social { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; max-width: min(100%, 480px); margin: 0 auto; }
+      .hero-social-top { display: flex; align-items: center; gap: 0.4rem; }
+      .hero-social-sub { font-size: 0.88rem; color: #666; text-align: center; max-width: 100%; overflow-wrap: break-word; padding: 0 1rem; }
+      .mobile-only { display: none; }
+      @media (max-width: 820px) { .mobile-only { display: inline; } }
+      @media (min-width: 821px) {
+        .hero-social { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
+        .hero-social-sub::before { content: "· "; }
+      }
+    </style>
+
+    <div class="hero-image-wide">
+      <img src="/assets/images/devicespt.webp" alt="CivicLearn Prova de Cidadania em vários dispositivos">
+    </div>
+
+  </div>
+</section>
+
+
+<!-- FEATURES: WHAT'S INCLUDED -->
+<section class="features-section">
+
+  <div class="section-heading">
+    <div class="section-kicker">Tudo num só lugar</div>
+    <h2 class="section-title">Prepare-se eficazmente para a prova de cidadania</h2>
+    <p class="section-lead">
+      Estude com 800 perguntas, teste-se com simulações realistas e acompanhe o seu progresso tema a tema.
+    </p>
+  </div>
+
+  <div class="features-grid">
+
+    <!-- CARD 1: About the test -->
+    <div class="feature-card" onclick="location.href='/sobre-o-teste/'">
+      <a href="/sobre-o-teste/" class="feature-card-link">
+
+        <div class="feature-icon">
+          <img src="/assets/images/5.svg" alt="Sobre o teste">
+        </div>
+
+        <h3 class="feature-title">Sobre a prova de cidadania</h3>
+
+        <p class="feature-text">
+          A nova Lei da Nacionalidade exige uma prova de conhecimentos cívicos para a cidadania por naturalização. O teste abrange 5 temas sobre a história, cultura, política, direitos e sociedade de Portugal.
+        </p>
+
+        <div class="feature-cta">
+          Saiba mais <span class="arrow">›</span>
+        </div>
+
+      </a>
+    </div>
+
+    <!-- CARD 2: Free Test -->
+    <div class="feature-card" onclick="location.href='/teste-gratis/'">
+      <a href="/teste-gratis/" class="feature-card-link">
+
+        <div class="feature-icon">
+          <img src="/assets/images/6.svg" alt="Teste grátis">
+        </div>
+
+        <h3 class="feature-title">Teste grátis</h3>
+
+        <p class="feature-text">
+          Teste os seus conhecimentos com 10 perguntas gratuitas dos 5 temas. Veja como funciona a plataforma e avalie o seu nível atual.
+        </p>
+
+        <div class="feature-cta">
+          Fazer teste grátis <span class="arrow">›</span>
+        </div>
+
+      </a>
+    </div>
+
+    <!-- CARD 3: Full access -->
+    <div class="feature-card" onclick="location.href='https://civiclearn.com/portugal/checkout'">
+      <a href="https://civiclearn.com/portugal/checkout" class="feature-card-link">
+
+        <div class="feature-icon">
+          <img src="/assets/images/3.svg" alt="Acesso completo">
+        </div>
+
+        <h3 class="feature-title">800 perguntas — 5 temas</h3>
+
+        <p class="feature-text">
+          Estude ao seu ritmo com explicações em português e inglês, acompanhe o seu progresso por tema e fique pronto para o dia do exame.
+        </p>
+
+        <div class="feature-cta">
+          Começar agora <span class="arrow">›</span>
+        </div>
+
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- INLINE TEST -->
+<section class="inline-test">
+  <div class="inline-test-inner">
+
+    <h2 class="inline-test-heading">Teste os seus conhecimentos</h2>
+    <p class="inline-test-lead">Vinte perguntas rápidas sobre Portugal — quanto sabe?</p>
+
+    <div id="inline-test-questions">
+      <!-- Questions loaded by hometest-provacidadania.js -->
+    </div>
+
+    <div class="inline-progressbar-wrapper">
+      <div class="inline-progressbar" id="inline-progressbar"></div>
+    </div>
+    <p id="inline-progress-text" class="inline-progress-text"></p>
+
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="premium-pricing">
+
+  <div class="section-heading">
+    <div class="section-kicker">Preços</div>
+    <h2 class="section-title">Escolha o plano ideal</h2>
+    <p class="section-lead">
+      Pagamento único — acesso vitalício. Sem subscrições.
+    </p>
+  </div>
+
+  <div class="pricing-toggle-row">
+    <button class="pricing-toggle-btn active" data-plan="solo">
+      Conhecimentos Cívicos
+    </button>
+    <button class="pricing-toggle-btn" data-plan="bundle">
+      Cidadania + CIPLE <span class="bundle-badge">Poupe €19</span>
+    </button>
+  </div>
+
+  <div class="pricing-card">
+
+    <div class="pricing-top">
+      <span class="pricing-tag" id="pricing-tag-text">Conhecimentos Cívicos</span>
+    </div>
+
+    <div class="pricing-price">
+      <div class="amount" id="pricing-amount">€49</div>
+      <div class="subtitle">Pagamento único — acesso vitalício</div>
+      <div class="bundle-saving" id="pricing-saving">€49 + €49 = €98 → paga apenas €79</div>
+    </div>
+
+    <div class="pricing-divider"></div>
+
+    <ul class="feature-list">
+      <li>800 perguntas sobre Portugal (PT/EN)</li>
+      <li>5 temas com indicador de progresso</li>
+      <li>Simulações realistas de exame</li>
+      <li>Explicações para cada pergunta</li>
+      <li>Modo flashcard e exercícios rápidos</li>
+      <li>Estatísticas detalhadas e histórico</li>
+      <li>Modo sequencial por tema</li>
+      <li>Acesso em computador, tablet e telemóvel</li>
+      <li>Ativação imediata após pagamento</li>
+      <li class="bundle-extra">+ CIPLE: simulações completas de português</li>
+      <li class="bundle-extra">+ Compreensão oral e escrita, produção oral e escrita</li>
+      <li class="bundle-extra">+ Avaliação IA com feedback detalhado</li>
+    </ul>
+
+    <a class="pricing-cta" href="https://civiclearn.com/portugal/checkout" id="pricing-cta-link">
+      Começar agora — €49
+    </a>
+
+  </div>
+
+  <div class="pricing-guarantee">
+    Pagamento único. Sem subscrições. Acesso vitalício.
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="cl-faq">
+
+  <div class="section-heading">
+    <div class="section-kicker">Perguntas frequentes</div>
+    <h2 class="section-title">FAQ — Prova de Cidadania</h2>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>O que é a prova de conhecimentos cívicos?</span>
+    </div>
+    <div class="faq-answer">
+      <p>
+        A nova Lei da Nacionalidade, aprovada em abril de 2026, introduz a obrigatoriedade de uma prova
+        de conhecimentos cívicos para quem pede a cidadania portuguesa por naturalização.
+        O teste avalia conhecimentos sobre a história, cultura, organização política, e direitos
+        e deveres de Portugal.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Isto é uma subscrição?</span>
+    </div>
+    <div class="faq-answer">
+      <p>Não. Um pagamento único de €49 dá-lhe acesso ilimitado a todo o conteúdo, sem qualquer subscrição. O pacote bundle (€79) inclui também o CIPLE para a prova de português.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Que temas são abrangidos?</span>
+    </div>
+    <div class="faq-answer">
+      <p>
+        O teste abrange 5 áreas temáticas: História de Portugal, Cultura e identidade nacional,
+        Organização política e instituições, Direitos e deveres dos cidadãos, e Sociedade portuguesa.
+        O nosso banco de perguntas cobre todos os temas com um total de 800 perguntas.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>As vossas perguntas são iguais às do teste oficial?</span>
+    </div>
+    <div class="faq-answer">
+      <p>
+        O teste oficial ainda não foi regulamentado — aguarda-se a publicação da portaria que definirá
+        o formato e conteúdo do exame. As nossas perguntas são baseadas nos temas e matérias definidos
+        na lei aprovada (artigo 6.º da Lei da Nacionalidade).
+      </p>
+      <p>
+        Não temos qualquer ligação ao Estado português. A nossa plataforma tem como único objetivo
+        ajudá-lo a preparar-se eficazmente.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Acabei de pagar. O que acontece agora?</span>
+    </div>
+    <div class="faq-answer">
+      <p>
+        Após o pagamento, cria uma palavra-passe de imediato. É depois redirecionado para o ecrã de login.
+        Insira o seu e-mail e a nova palavra-passe para aceder imediatamente à sua área de estudo.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>As perguntas existem em inglês?</span>
+    </div>
+    <div class="faq-answer">
+      <p>
+        Sim. Todas as 800 perguntas estão disponíveis em português e em inglês. Pode alternar entre os idiomas
+        a qualquer momento na plataforma, o que facilita o estudo se ainda está a aprender português.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Qual é a diferença entre "Solo" e "Bundle"?</span>
+    </div>
+    <div class="faq-answer">
+      <p>
+        Solo (€49) dá acesso à prova de conhecimentos cívicos — 800 perguntas, simulações e todos os modos de estudo.
+      </p>
+      <p>
+        Bundle (€79) inclui tudo acima mais o CIPLE — a nossa plataforma para a prova de português,
+        com simulações completas de compreensão e produção oral e escrita.
+        Juntos, poupa €19 em relação à compra separada.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Cidadãos da CPLP precisam desta prova?</span>
+    </div>
+    <div class="faq-answer">
+      <p>
+        Sim. Cidadãos de países lusófonos (Brasil, Angola, Moçambique, etc.) estão dispensados do requisito
+        de língua portuguesa, mas continuam obrigados a demonstrar conhecimentos cívicos e culturais
+        sobre Portugal. A prova de conhecimentos cívicos aplica-se a todos os candidatos por naturalização.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Posso usar a plataforma no telemóvel?</span>
+    </div>
+    <div class="faq-answer">
+      <p>Sim. A plataforma funciona em qualquer dispositivo com ligação à internet — computador, tablet ou telemóvel.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Quanto tempo leva a preparação?</span>
+    </div>
+    <div class="faq-answer">
+      <p>
+        Depende dos seus conhecimentos prévios sobre Portugal. A maioria dos utilizadores precisa
+        de duas a quatro semanas de estudo para se sentir preparada. Recomendamos que comece
+        com antecedência, antes de a portaria ser publicada.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- FEATURED ARTICLES -->
+<section class="home-articles">
+  <div class="section-heading">
+    <div class="section-kicker">Mais para ler</div>
+    <h2 class="section-title">Artigos sobre a cidadania portuguesa</h2>
+    <p class="section-lead">
+      Contexto, dicas e tudo o que precisa de saber sobre os novos requisitos para a nacionalidade portuguesa.
+    </p>
+  </div>
+
+  <div class="home-articles-grid" id="homeArticlesGrid"></div>
+
+  <p class="home-articles-more">
+    <a href="/artigos/">Ver todos os artigos →</a>
+  </p>
+</section>
+
+
+<!-- COMPATIBILITY -->
+<section class="compat-section">
+  <div class="compat-inner">
+
+    <h2 class="compat-title">Compatível com todos os dispositivos e navegadores modernos</h2>
+
+    <div class="compat-grid">
+      <div class="compat-item"><img src="/assets/images/logos/windows.svg"><p>Windows</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/macos.svg"><p>macOS</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/android.svg"><p>Android</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/ios.svg"><p>iPhone / iPad</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/chrome.svg"><p>Chrome</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/safari.svg"><p>Safari</p></div>
+      <div class="compat-item"><img src="/assets/images/logos/firefox.svg"><p>Firefox</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="footer-year"></span> Provacidadania.pt — membro da rede CivicLearn.</div>
+    <div class="footer-links">
+      <a href="/teste-gratis/">Teste grátis</a>
+      <a href="/artigos/">Artigos</a>
+      <a href="/contacto/">Contacto</a>
+      <a href="/politicas/">Políticas</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- HOME TEST -->
+<script src="/assets/js/hometest-provacidadania.js"></script>
+
+
+<!-- FAQ ACCORDION -->
+<script>
+document.querySelectorAll(".faq-item").forEach(item => {
+  const q = item.querySelector(".faq-question");
+  q.addEventListener("click", () => {
+    document.querySelectorAll(".faq-item").forEach(i => {
+      if (i !== item) i.classList.remove("open");
+    });
+    item.classList.toggle("open");
+  });
+});
+</script>
+
+
+<!-- ======================================================
+   PORTUGAL — PORTARIA COUNTDOWN (90 days from ~April 10 2026 promulgation)
+   ====================================================== -->
+<script>
+(function () {
+  // Estimated: law promulgated ~April 10 2026, portaria due within 90 days → ~July 9 2026
+  const PORTARIA_DATE = "2026-07-09";
+
+  function daysUntil(dateStr) {
+    const now = new Date();
+    const target = new Date(dateStr + "T00:00:00");
+    return Math.max(0, Math.ceil((target - now) / 86400000));
+  }
+
+  function dayLabel(n) {
+    return n === 1 ? "DIA" : "DIAS";
+  }
+
+  function update() {
+    const counter = document.querySelector("#status-portaria-counter");
+    if (!counter) return;
+
+    const num = counter.querySelector(".count-number");
+    const unit = counter.querySelector(".count-unit");
+
+    const d = daysUntil(PORTARIA_DATE);
+
+    if (d > 0) {
+      num.textContent = d;
+      unit.textContent = dayLabel(d);
+    } else {
+      num.textContent = "✓";
+      unit.textContent = "";
+      document.getElementById("status-portaria-text").innerHTML =
+        "O prazo para publicação da portaria <strong>expirou</strong>." +
+        ' <span class="status-pill">Aguardar</span>';
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", update);
+})();
+</script>
+
+
+<!-- PRICING TOGGLE -->
+<script>
+(function () {
+  const btns = document.querySelectorAll(".pricing-toggle-btn");
+  const amount = document.getElementById("pricing-amount");
+  const tag = document.getElementById("pricing-tag-text");
+  const saving = document.getElementById("pricing-saving");
+  const cta = document.getElementById("pricing-cta-link");
+  const bundleExtras = document.querySelectorAll(".feature-list .bundle-extra");
+
+  function setPlan(plan) {
+    btns.forEach(b => b.classList.toggle("active", b.dataset.plan === plan));
+
+    if (plan === "bundle") {
+      amount.textContent = "€79";
+      tag.textContent = "Cidadania + CIPLE";
+      saving.classList.add("visible");
+      cta.textContent = "Começar agora — €79";
+      cta.href = "https://civiclearn.com/portugal/checkout?plan=bundle";
+      bundleExtras.forEach(el => el.classList.add("visible"));
+    } else {
+      amount.textContent = "€49";
+      tag.textContent = "Conhecimentos Cívicos";
+      saving.classList.remove("visible");
+      cta.textContent = "Começar agora — €49";
+      cta.href = "https://civiclearn.com/portugal/checkout";
+      bundleExtras.forEach(el => el.classList.remove("visible"));
+    }
+  }
+
+  btns.forEach(b => b.addEventListener("click", () => setPlan(b.dataset.plan)));
+})();
+</script>
+
+
+<!-- FOOTER YEAR -->
+<script>
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+</script>
+
+<!-- HOME ARTICLES -->
+<script>
+(async function () {
+  const grid = document.getElementById("homeArticlesGrid");
+  if (!grid) return;
+
+  let all;
+  try {
+    const res = await fetch('/artigos/articles.json');
+    all = await res.json();
+  } catch(e) { return; }
+
+  const selected = all.sort(() => Math.random() - 0.5).slice(0, 6);
+
+  grid.innerHTML = selected.map(a => `
+    <a href="${a.url}" class="home-article-card">
+      <img src="${a.image}" alt="${a.title}" onerror="this.style.display='none'">
+      <div class="home-article-body">
+        <h3>${a.title}</h3>
+        <p>${a.desc}</p>
+      </div>
+    </a>
+  `).join('');
+})();
+</script>
+
+</body>
+</html>

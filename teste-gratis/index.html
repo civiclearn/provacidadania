@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teste grátis – 25 perguntas sobre Portugal | Provacidadania.pt</title>
+
+  <link rel="canonical" href="https://provacidadania.pt/teste-gratis/" />
+  <meta name="description" content="Teste os seus conhecimentos sobre Portugal com 25 perguntas gratuitas dos 5 temas. Limite de tempo, resultado por tema e comparação com a nota de aprovação.">
+  <meta name="keywords" content="teste cidadania portuguesa grátis, prova conhecimentos cívicos, teste nacionalidade portugal, simulação cidadania portugal">
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Teste grátis – 25 perguntas sobre Portugal | Provacidadania.pt" />
+  <meta property="og:description" content="Teste os seus conhecimentos com 25 perguntas dos 5 temas. Avaliação automática e resultado por tema." />
+  <meta property="og:url" content="https://provacidadania.pt/teste-gratis/" />
+  <meta property="og:image" content="https://provacidadania.pt/assets/images/og-default.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Teste grátis – Provacidadania.pt" />
+  <meta name="twitter:description" content="25 perguntas, 5 temas, 20 minutos. Quanto sabe sobre Portugal?" />
+  <meta name="twitter:image" content="https://provacidadania.pt/assets/images/og-default.jpg" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/newhome.css">
+
+  <style>
+    /* ── Test layout ── */
+    .test-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    /* ── Top bar ── */
+    .test-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .test-badge {
+      background: #f5f0ff;
+      color: #5b21b6;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+    }
+    .test-timer {
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.04em;
+    }
+    .test-timer.urgent {
+      background: #dc2626;
+      animation: pulse-timer 1s ease-in-out infinite;
+    }
+    @keyframes pulse-timer {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    /* ── Progress ── */
+    .test-progress-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .test-progress-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #888;
+      white-space: nowrap;
+    }
+    .test-progress-track {
+      flex: 1;
+      height: 6px;
+      background: #eee;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .test-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #7c3aed, #a78bfa);
+      border-radius: 999px;
+      transition: width 0.35s ease;
+      width: 0%;
+    }
+    .test-score-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #7c3aed;
+      white-space: nowrap;
+    }
+
+    /* ── Question card ── */
+    .q-card {
+      background: #fff;
+      border-radius: 1.3rem;
+      padding: 2rem 2.2rem 1.8rem;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 600px) {
+      .q-card { padding: 1.4rem 1.2rem 1.2rem; }
+    }
+
+    .q-topic-tag {
+      display: inline-block;
+      background: #f0edf8;
+      color: #6d28d9;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      margin-bottom: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .q-text {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      line-height: 1.5;
+      margin-bottom: 1.4rem;
+    }
+    .q-number {
+      color: #a78bfa;
+      font-weight: 700;
+    }
+
+    /* ── Choices ── */
+    .q-choices {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .q-choice {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #faf9fc;
+      border: 2px solid #e8e0f5;
+      border-radius: 0.8rem;
+      padding: 0.85rem 1.1rem;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.97rem;
+      font-weight: 500;
+      color: #333;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s, transform 0.1s;
+      line-height: 1.45;
+    }
+    .q-choice:hover:not(.locked) {
+      border-color: #c4b5fd;
+      background: #f5f0ff;
+      transform: translateY(-1px);
+    }
+    .q-choice.locked { cursor: default; }
+    .q-choice.correct {
+      border-color: #22c55e;
+      background: #f0fdf4;
+      color: #166534;
+    }
+    .q-choice.wrong {
+      border-color: #ef4444;
+      background: #fef2f2;
+      color: #991b1b;
+    }
+    .q-choice.correct::before {
+      content: "✓ ";
+      font-weight: 700;
+    }
+    .q-choice.wrong::before {
+      content: "✗ ";
+      font-weight: 700;
+    }
+
+    /* ── Explanation ── */
+    .q-explanation {
+      display: none;
+      background: #fefce8;
+      border: 1px solid #fde68a;
+      border-radius: 0.7rem;
+      padding: 0.9rem 1.1rem;
+      font-size: 0.9rem;
+      color: #713f12;
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+    .q-explanation.visible { display: block; }
+
+    /* ── Nav buttons ── */
+    .q-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+    .q-btn {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 0.7rem 1.4rem;
+      border-radius: 0.65rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, opacity 0.15s;
+    }
+    .q-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+    .q-btn-prev {
+      background: #f3f0ff;
+      color: #5b21b6;
+    }
+    .q-btn-prev:hover:not(:disabled) { background: #ebe5ff; }
+    .q-btn-next {
+      background: #7c3aed;
+      color: #fff;
+    }
+    .q-btn-next:hover:not(:disabled) { background: #5b21b6; }
+
+    /* ── Results panel ── */
+    .results-panel {
+      display: none;
+      text-align: center;
+    }
+    .results-panel.visible { display: block; }
+
+    .results-stamp {
+      display: inline-block;
+      font-size: 1.6rem;
+      font-weight: 800;
+      padding: 0.8rem 2rem;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+    }
+    .results-stamp.pass { background: #dcfce7; color: #166534; }
+    .results-stamp.fail { background: #fef2f2; color: #991b1b; }
+
+    .results-score {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    /* Topic breakdown */
+    .results-topics {
+      text-align: left;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+    }
+    .results-topics h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+    }
+    .rt-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f0edf8;
+    }
+    .rt-row:last-child { border-bottom: none; }
+    .rt-name {
+      flex: 1;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: #333;
+    }
+    .rt-score {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #7c3aed;
+      white-space: nowrap;
+    }
+    .rt-bar-track {
+      width: 100px;
+      height: 6px;
+      background: #eee;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .rt-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.5s ease;
+    }
+    .rt-bar-fill.good { background: #22c55e; }
+    .rt-bar-fill.ok { background: #f59e0b; }
+    .rt-bar-fill.bad { background: #ef4444; }
+
+    /* Donut */
+    .results-donut {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .donut-svg { width: 160px; height: 160px; }
+    .donut-text {
+      font-family: 'Lexend', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      fill: #1a1a1a;
+    }
+    .donut-sub {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      fill: #888;
+    }
+
+    /* CTA */
+    .results-cta {
+      margin-top: 1.5rem;
+    }
+    .results-cta a {
+      display: inline-block;
+      background: #7c3aed;
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    .results-cta a:hover { background: #5b21b6; }
+    .results-cta-sub {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.6rem;
+    }
+
+    /* ── Intro panel ── */
+    .intro-panel {
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .intro-panel h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 0.6rem;
+    }
+    .intro-panel p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 1.5rem;
+    }
+    .intro-details {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .intro-detail {
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1rem 1.4rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      text-align: center;
+      min-width: 120px;
+    }
+    .intro-detail .id-num {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #7c3aed;
+    }
+    .intro-detail .id-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .intro-start {
+      display: inline-block;
+      background: #7c3aed;
+      color: #fff;
+      padding: 0.95rem 2.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      border: none;
+      cursor: pointer;
+      font-family: 'Lexend', sans-serif;
+      transition: background 0.2s;
+    }
+    .intro-start:hover { background: #5b21b6; }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="cl-header">
+  <div class="cl-header-inner">
+    <a href="/" class="cl-logo">
+      <img src="/assets/images/pt.svg" alt="PT" />
+      <span>Provacidadania.pt</span>
+    </a>
+    <nav class="cl-nav">
+      <a href="/teste-gratis/" class="active">Teste grátis</a>
+      <a href="/artigos/">Artigos</a>
+      <a href="/contacto/">Contacto</a>
+      <a href="https://civiclearn.com/portugal/login">Entrar</a>
+    </nav>
+    <div class="cl-right">
+      <div class="cl-powered">powered by <span>CivicLearn</span></div>
+      <a href="https://civiclearn.com/portugal/checkout" class="cl-btn">Ativar acesso</a>
+    </div>
+  </div>
+</header>
+
+<div class="test-wrapper">
+
+  <!-- ═══ INTRO ═══ -->
+  <div class="intro-panel" id="introPanel">
+    <h1>Teste grátis — conhecimentos cívicos</h1>
+    <p>
+      Teste os seus conhecimentos sobre Portugal com 25 perguntas dos 5 temas.
+      Tem 20 minutos. Cada pergunta tem uma explicação.
+    </p>
+    <div class="intro-details">
+      <div class="intro-detail">
+        <div class="id-num">25</div>
+        <div class="id-label">Perguntas</div>
+      </div>
+      <div class="intro-detail">
+        <div class="id-num">5</div>
+        <div class="id-label">Temas</div>
+      </div>
+      <div class="intro-detail">
+        <div class="id-num">20</div>
+        <div class="id-label">Minutos</div>
+      </div>
+      <div class="intro-detail">
+        <div class="id-num">80%</div>
+        <div class="id-label">Aprovação</div>
+      </div>
+    </div>
+    <button class="intro-start" id="btnStart">Iniciar o teste</button>
+  </div>
+
+  <!-- ═══ TEST UI (hidden until start) ═══ -->
+  <div id="testUI" style="display:none">
+
+    <div class="test-topbar">
+      <span class="test-badge" id="testBadge">Pergunta 1 de 25</span>
+      <span class="test-timer" id="testTimer">20:00</span>
+    </div>
+
+    <div class="test-progress-row">
+      <span class="test-progress-label" id="progressLabel">0 / 25</span>
+      <div class="test-progress-track">
+        <div class="test-progress-fill" id="progressFill"></div>
+      </div>
+      <span class="test-score-label" id="scoreLabel">0 corretas</span>
+    </div>
+
+    <div class="q-card" id="qCard">
+      <div class="q-topic-tag" id="qTopic"></div>
+      <div class="q-text" id="qText"></div>
+      <div class="q-choices" id="qChoices"></div>
+      <div class="q-explanation" id="qExplanation"></div>
+      <div class="q-nav">
+        <button class="q-btn q-btn-prev" id="btnPrev" disabled>← Anterior</button>
+        <button class="q-btn q-btn-next" id="btnNext" disabled>Seguinte →</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══ RESULTS (hidden until finish) ═══ -->
+  <div class="results-panel" id="resultsPanel">
+
+    <div class="results-donut" id="donutWrap"></div>
+    <div class="results-stamp" id="resultStamp"></div>
+    <p class="results-score" id="resultScore"></p>
+
+    <div class="results-topics" id="topicBreakdown">
+      <h3>Resultado por tema</h3>
+    </div>
+
+    <div class="results-cta">
+      <a href="https://civiclearn.com/portugal/checkout">Acesso completo — 800 perguntas</a>
+      <p class="results-cta-sub">€49 · Pagamento único · Acesso vitalício</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="footer-year"></span> Provacidadania.pt — membro da rede CivicLearn.</div>
+    <div class="footer-links">
+      <a href="/teste-gratis/">Teste grátis</a>
+      <a href="/artigos/">Artigos</a>
+      <a href="/contacto/">Contacto</a>
+      <a href="/politicas/">Políticas</a>
+    </div>
+  </div>
+</footer>
+<script>document.getElementById("footer-year").textContent = new Date().getFullYear();</script>
+
+<!-- ═══════════════════════════════════════
+     TEST ENGINE
+═══════════════════════════════════════ -->
+<script>
+(function () {
+
+/* ── TOPIC LABELS ── */
+const TOPICS = [
+  "História de Portugal",
+  "Cultura e identidade nacional",
+  "Organização política e instituições",
+  "Direitos e deveres dos cidadãos",
+  "Sociedade portuguesa"
+];
+
+/* ── 25 QUESTIONS (first option = correct) ── */
+const RAW = [
+  /* T0: História de Portugal */
+  { t:0, q:"Em que ano foi assinado o Tratado de Zamora, que reconheceu a independência de Portugal?", a:["1143","1096","1179","1249"], x:"O Tratado de Zamora, assinado em 1143, reconheceu Afonso Henriques como rei de Portugal." },
+  { t:0, q:"Que navegador português chegou à Índia por via marítima em 1498?", a:["Vasco da Gama","Pedro Álvares Cabral","Bartolomeu Dias","Fernão de Magalhães"], x:"Vasco da Gama chegou a Calecute (Índia) em maio de 1498, abrindo a rota marítima para o Oriente." },
+  { t:0, q:"Que acontecimento de 1755 destruiu grande parte de Lisboa?", a:["O terramoto de 1755","A invasão napoleónica","A revolução liberal","O cerco de Lisboa"], x:"O terramoto de 1 de novembro de 1755, seguido de tsunami e incêndio, devastou Lisboa." },
+  { t:0, q:"Em que ano foi proclamada a República Portuguesa?", a:["1910","1926","1974","1820"], x:"A República foi proclamada a 5 de outubro de 1910, pondo fim à monarquia constitucional." },
+  { t:0, q:"Que revolução restaurou a democracia em Portugal em 1974?", a:["Revolução dos Cravos (25 de Abril)","Revolução de 5 de Outubro","Revolução de 1640","Revolta de 1820"], x:"A Revolução de 25 de Abril de 1974 pôs fim ao regime do Estado Novo e restabeleceu a democracia." },
+
+  /* T1: Cultura e identidade nacional */
+  { t:1, q:"Que género musical português foi classificado como Património Imaterial da Humanidade pela UNESCO?", a:["O fado","O cante alentejano","A guitarra portuguesa","O vira"], x:"O fado foi inscrito na Lista Representativa do Património Cultural Imaterial da Humanidade em 2011." },
+  { t:1, q:"Em que data se celebra o Dia de Portugal?", a:["10 de junho","25 de abril","5 de outubro","1 de dezembro"], x:"O Dia de Portugal, de Camões e das Comunidades Portuguesas celebra-se a 10 de junho." },
+  { t:1, q:"Quem escreveu 'Os Lusíadas'?", a:["Luís de Camões","Fernando Pessoa","Eça de Queirós","José Saramago"], x:"Luís de Camões publicou Os Lusíadas em 1572, a epopeia nacional portuguesa." },
+  { t:1, q:"O que representa a esfera armilar presente na bandeira de Portugal?", a:["A era dos Descobrimentos","A monarquia","A República","A União Europeia"], x:"A esfera armilar simboliza os Descobrimentos portugueses e a expansão marítima." },
+  { t:1, q:"Que doce conventual é um dos mais emblemáticos de Portugal?", a:["O pastel de nata","O croissant","A bola de Berlim","O arroz doce"], x:"O pastel de nata (ou pastel de Belém) tem origem no Mosteiro dos Jerónimos e é um ícone da pastelaria portuguesa." },
+
+  /* T2: Organização política e instituições */
+  { t:2, q:"Qual é o órgão legislativo de Portugal?", a:["Assembleia da República","Conselho de Estado","Tribunal Constitucional","Conselho de Ministros"], x:"A Assembleia da República é o parlamento unicameral de Portugal, com 230 deputados." },
+  { t:2, q:"De quantos em quantos anos se realizam eleições legislativas em Portugal?", a:["4 anos","5 anos","3 anos","6 anos"], x:"As eleições legislativas realizam-se de 4 em 4 anos, salvo dissolução antecipada da Assembleia." },
+  { t:2, q:"Quem é o Chefe de Estado em Portugal?", a:["O Presidente da República","O Primeiro-Ministro","O Presidente da Assembleia da República","O Presidente do Supremo Tribunal"], x:"O Presidente da República é o Chefe de Estado, eleito por sufrágio direto e universal para um mandato de 5 anos." },
+  { t:2, q:"Que órgão tem a função de fiscalizar a constitucionalidade das leis?", a:["O Tribunal Constitucional","O Supremo Tribunal de Justiça","O Tribunal de Contas","A Provedoria de Justiça"], x:"O Tribunal Constitucional é o órgão jurisdicional que aprecia a conformidade das leis com a Constituição." },
+  { t:2, q:"Quantos deputados compõem a Assembleia da República?", a:["230","250","200","180"], x:"A Assembleia da República é composta por 230 deputados eleitos por círculos eleitorais plurinominais." },
+
+  /* T3: Direitos e deveres dos cidadãos */
+  { t:3, q:"Que documento consagra os direitos fundamentais dos cidadãos portugueses?", a:["A Constituição da República Portuguesa","O Código Civil","A Carta Europeia dos Direitos Humanos","O Código Penal"], x:"A Constituição de 1976, revista várias vezes, consagra os direitos, liberdades e garantias dos cidadãos." },
+  { t:3, q:"A partir de que idade é obrigatória a escolaridade em Portugal?", a:["Dos 6 aos 18 anos","Dos 6 aos 15 anos","Dos 7 aos 16 anos","Dos 5 aos 18 anos"], x:"A escolaridade obrigatória em Portugal vai dos 6 aos 18 anos (12.º ano de escolaridade)." },
+  { t:3, q:"Qual é a idade mínima para votar em Portugal?", a:["18 anos","16 anos","21 anos","17 anos"], x:"O direito de voto em Portugal é exercido a partir dos 18 anos de idade." },
+  { t:3, q:"Qual é o nome do sistema de saúde público em Portugal?", a:["Serviço Nacional de Saúde (SNS)","Sistema Único de Saúde (SUS)","Segurança Social","ADSE"], x:"O SNS, criado em 1979, garante o acesso universal a cuidados de saúde em Portugal." },
+  { t:3, q:"Que instituição funciona como Provedor de Justiça em Portugal?", a:["O Provedor de Justiça","O Tribunal Constitucional","O Ministério Público","A Inspeção-Geral da Justiça"], x:"O Provedor de Justiça é um órgão independente que defende os cidadãos perante a administração pública." },
+
+  /* T4: Sociedade portuguesa */
+  { t:4, q:"Em que ano Portugal aderiu à Comunidade Económica Europeia (atual UE)?", a:["1986","1995","1974","2004"], x:"Portugal aderiu à CEE a 1 de janeiro de 1986, juntamente com Espanha." },
+  { t:4, q:"O que é a CPLP?", a:["Comunidade dos Países de Língua Portuguesa","Conselho Permanente da Língua Portuguesa","Comissão para a Proteção da Língua Portuguesa","Centro Português de Língua e Pesquisa"], x:"A CPLP, fundada em 1996, reúne os nove países de língua oficial portuguesa." },
+  { t:4, q:"Qual é a moeda oficial de Portugal?", a:["O euro","O escudo","O real","A libra"], x:"Portugal adotou o euro a 1 de janeiro de 1999 (moedas e notas em circulação desde 2002)." },
+  { t:4, q:"Cidadãos da CPLP estão isentos da prova de conhecimentos cívicos para a naturalização?", a:["Não — estão isentos da prova de língua, mas não da de conhecimentos cívicos","Sim — estão totalmente isentos","Apenas os brasileiros estão isentos","Depende do tempo de residência"], x:"Cidadãos de países lusófonos estão dispensados do requisito linguístico, mas devem demonstrar conhecimentos cívicos sobre Portugal." },
+  { t:4, q:"Qual é a segunda maior cidade de Portugal?", a:["Porto","Braga","Coimbra","Faro"], x:"O Porto é a segunda maior cidade de Portugal e o centro económico do norte do país." }
+];
+
+/* ── SHUFFLE HELPER ── */
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+/* ── BUILD MODEL ── */
+var model = RAW.map(function (item, idx) {
+  var correct = item.a[0];
+  var shuffled = shuffle(item.a);
+  return {
+    index: idx,
+    topic: item.t,
+    text: item.q,
+    explanation: item.x,
+    choices: shuffled.map(function (opt) { return { text: opt, isCorrect: opt === correct }; }),
+    answered: false,
+    pickedIndex: -1
+  };
+});
+
+/* ── DOM REFS ── */
+var introPanel   = document.getElementById("introPanel");
+var testUI       = document.getElementById("testUI");
+var resultsPanel = document.getElementById("resultsPanel");
+var btnStart     = document.getElementById("btnStart");
+var testBadge    = document.getElementById("testBadge");
+var testTimer    = document.getElementById("testTimer");
+var progressLabel= document.getElementById("progressLabel");
+var progressFill = document.getElementById("progressFill");
+var scoreLabel   = document.getElementById("scoreLabel");
+var qTopic       = document.getElementById("qTopic");
+var qText        = document.getElementById("qText");
+var qChoices     = document.getElementById("qChoices");
+var qExplanation = document.getElementById("qExplanation");
+var btnPrev      = document.getElementById("btnPrev");
+var btnNext      = document.getElementById("btnNext");
+
+var qi = 0;
+var score = 0;
+var total = model.length;
+var timerSec = 20 * 60;
+var timerInt = null;
+
+/* ── START ── */
+btnStart.addEventListener("click", function () {
+  introPanel.style.display = "none";
+  testUI.style.display = "block";
+  renderQuestion();
+  timerInt = setInterval(tick, 1000);
+});
+
+/* ── TIMER ── */
+function tick() {
+  timerSec--;
+  if (timerSec < 0) {
+    clearInterval(timerInt);
+    finishTest();
+    return;
+  }
+  var m = Math.floor(timerSec / 60).toString();
+  var s = (timerSec % 60).toString();
+  if (m.length < 2) m = "0" + m;
+  if (s.length < 2) s = "0" + s;
+  testTimer.textContent = m + ":" + s;
+  if (timerSec <= 120) testTimer.classList.add("urgent");
+}
+
+/* ── RENDER ── */
+function renderQuestion() {
+  var q = model[qi];
+  qTopic.textContent = TOPICS[q.topic];
+  qText.innerHTML = '<span class="q-number">' + (qi + 1) + ".</span> " + q.text;
+
+  qChoices.innerHTML = "";
+  q.choices.forEach(function (c, idx) {
+    var btn = document.createElement("button");
+    btn.className = "q-choice" + (q.answered ? " locked" : "");
+    btn.textContent = c.text;
+    btn.addEventListener("click", function () { pick(idx); });
+    qChoices.appendChild(btn);
+  });
+
+  if (q.answered) revealStyles();
+  qExplanation.textContent = q.explanation;
+  qExplanation.className = "q-explanation" + (q.answered ? " visible" : "");
+
+  btnPrev.disabled = (qi === 0);
+  btnNext.disabled = !q.answered;
+  btnNext.textContent = (qi === total - 1) ? "Ver resultado →" : "Seguinte →";
+
+  testBadge.textContent = "Pergunta " + (qi + 1) + " de " + total;
+  var answeredCount = model.filter(function (m) { return m.answered; }).length;
+  progressLabel.textContent = answeredCount + " / " + total;
+  progressFill.style.width = ((answeredCount / total) * 100) + "%";
+  scoreLabel.textContent = score + " corretas";
+}
+
+/* ── PICK ── */
+function pick(idx) {
+  var q = model[qi];
+  if (q.answered) return;
+  q.answered = true;
+  q.pickedIndex = idx;
+  if (q.choices[idx].isCorrect) score++;
+  revealStyles();
+  qExplanation.className = "q-explanation visible";
+  btnNext.disabled = false;
+
+  var answeredCount = model.filter(function (m) { return m.answered; }).length;
+  progressLabel.textContent = answeredCount + " / " + total;
+  progressFill.style.width = ((answeredCount / total) * 100) + "%";
+  scoreLabel.textContent = score + " corretas";
+}
+
+function revealStyles() {
+  var q = model[qi];
+  var btns = qChoices.querySelectorAll(".q-choice");
+  btns.forEach(function (b, i) {
+    b.classList.add("locked");
+    if (q.choices[i].isCorrect) b.classList.add("correct");
+    if (q.pickedIndex === i && !q.choices[i].isCorrect) b.classList.add("wrong");
+  });
+}
+
+/* ── NAV ── */
+btnNext.addEventListener("click", function () {
+  if (qi < total - 1) { qi++; renderQuestion(); }
+  else finishTest();
+});
+btnPrev.addEventListener("click", function () {
+  if (qi > 0) { qi--; renderQuestion(); }
+});
+
+/* ── FINISH ── */
+function finishTest() {
+  clearInterval(timerInt);
+  testUI.style.display = "none";
+  resultsPanel.classList.add("visible");
+
+  var pct = Math.round((score / total) * 100);
+  var pass = pct >= 80;
+
+  /* Stamp */
+  var stamp = document.getElementById("resultStamp");
+  stamp.textContent = pass ? "Aprovado!" : "Não aprovado";
+  stamp.className = "results-stamp " + (pass ? "pass" : "fail");
+
+  /* Score text */
+  document.getElementById("resultScore").textContent =
+    score + " de " + total + " corretas (" + pct + " %). " +
+    (pass
+      ? "Atingiu a nota de aprovação de 80 %. Parabéns!"
+      : "A nota de aprovação é 80 %. Continue a estudar — vai conseguir!");
+
+  /* Donut */
+  renderDonut(pct);
+
+  /* Topic breakdown */
+  renderTopicBreakdown();
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* ── SVG DONUT ── */
+function renderDonut(pct) {
+  var r = 60, c = 2 * Math.PI * r;
+  var offset = c - (pct / 100) * c;
+  var color = pct >= 80 ? "#22c55e" : pct >= 50 ? "#f59e0b" : "#ef4444";
+  var wrap = document.getElementById("donutWrap");
+  wrap.innerHTML =
+    '<svg class="donut-svg" viewBox="0 0 160 160">' +
+    '<circle cx="80" cy="80" r="' + r + '" fill="none" stroke="#eee" stroke-width="14"/>' +
+    '<circle cx="80" cy="80" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="14" ' +
+    'stroke-dasharray="' + c + '" stroke-dashoffset="' + offset + '" stroke-linecap="round" ' +
+    'transform="rotate(-90 80 80)" style="transition:stroke-dashoffset 1s ease"/>' +
+    '<text x="80" y="74" text-anchor="middle" class="donut-text">' + pct + '%</text>' +
+    '<text x="80" y="96" text-anchor="middle" class="donut-sub">CORRETAS</text>' +
+    '</svg>';
+}
+
+/* ── TOPIC BREAKDOWN ── */
+function renderTopicBreakdown() {
+  var wrap = document.getElementById("topicBreakdown");
+  var stats = {};
+  TOPICS.forEach(function (t, i) { stats[i] = { right: 0, total: 0 }; });
+  model.forEach(function (q) {
+    stats[q.topic].total++;
+    if (q.answered && q.choices[q.pickedIndex] && q.choices[q.pickedIndex].isCorrect) stats[q.topic].right++;
+  });
+
+  TOPICS.forEach(function (name, i) {
+    var s = stats[i];
+    if (s.total === 0) return;
+    var pct = Math.round((s.right / s.total) * 100);
+    var cls = pct >= 75 ? "good" : pct >= 50 ? "ok" : "bad";
+
+    var row = document.createElement("div");
+    row.className = "rt-row";
+    row.innerHTML =
+      '<span class="rt-name">' + name + '</span>' +
+      '<span class="rt-score">' + s.right + '/' + s.total + '</span>' +
+      '<div class="rt-bar-track"><div class="rt-bar-fill ' + cls + '" style="width:' + pct + '%"></div></div>';
+    wrap.appendChild(row);
+  });
+}
+
+})();
+</script>
+
+</body>
+</html>

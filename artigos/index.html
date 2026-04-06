@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Artigos sobre a cidadania portuguesa — Provacidadania.pt</title>
+  <meta name="description" content="Artigos, guias e dicas sobre a nova prova de conhecimentos cívicos para a cidadania portuguesa. Temas, cronologia, preparação e perguntas frequentes.">
+  <link rel="canonical" href="https://provacidadania.pt/artigos/">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/newhome.css">
+  <style>
+    .articles-main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .articles-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0 0 0.4rem;
+    }
+    .articles-subtitle {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #666;
+      margin: 0 0 2.5rem;
+      line-height: 1.6;
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 640px) {
+      .articles-grid { grid-template-columns: 1fr; }
+    }
+    .article-card {
+      background: #fff;
+      border-radius: 1.1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.2s, transform 0.15s;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card:hover {
+      box-shadow: 0 8px 28px rgba(124, 58, 237, 0.12);
+      transform: translateY(-2px);
+    }
+    .article-card img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+    .article-card-body {
+      padding: 1.2rem 1.4rem 1.4rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-card-body h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0 0 0.4rem;
+      line-height: 1.35;
+    }
+    .article-card-body p {
+      font-size: 0.88rem;
+      color: #666;
+      line-height: 1.55;
+      margin: 0;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+
+<header class="cl-header">
+  <div class="cl-header-inner">
+    <a href="/" class="cl-logo">
+      <img src="/assets/images/pt.svg" alt="PT" />
+      <span>Provacidadania.pt</span>
+    </a>
+    <nav class="cl-nav">
+      <a href="/teste-gratis/">Teste grátis</a>
+      <a href="/artigos/" class="active">Artigos</a>
+      <a href="/contacto/">Contacto</a>
+      <a href="https://civiclearn.com/portugal/login">Entrar</a>
+    </nav>
+    <div class="cl-right">
+      <div class="cl-powered">powered by <span>CivicLearn</span></div>
+      <a href="https://civiclearn.com/portugal/checkout" class="cl-btn">Ativar acesso</a>
+    </div>
+  </div>
+</header>
+
+<main class="articles-main">
+  <h1 class="articles-title">Artigos</h1>
+  <p class="articles-subtitle">
+    Guias, dicas e tudo o que precisa de saber sobre a nova prova de conhecimentos cívicos para a cidadania portuguesa.
+  </p>
+  <div class="articles-grid" id="articlesGrid"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="footer-year"></span> Provacidadania.pt — membro da rede CivicLearn.</div>
+    <div class="footer-links">
+      <a href="/teste-gratis/">Teste grátis</a>
+      <a href="/artigos/">Artigos</a>
+      <a href="/contacto/">Contacto</a>
+      <a href="/politicas/">Políticas</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(async function () {
+  const grid = document.getElementById("articlesGrid");
+  if (!grid) return;
+  try {
+    const res = await fetch("/artigos/articles.json");
+    const articles = await res.json();
+    grid.innerHTML = articles.map(a => `
+      <a href="${a.url}" class="article-card">
+        <img src="${a.image}" alt="${a.title}" onerror="this.style.display='none'">
+        <div class="article-card-body">
+          <h2>${a.title}</h2>
+          <p>${a.desc}</p>
+        </div>
+      </a>
+    `).join('');
+  } catch (e) {}
+})();
+</script>
+<script>document.getElementById("footer-year").textContent = new Date().getFullYear();</script>
+
+</body>
+</html>

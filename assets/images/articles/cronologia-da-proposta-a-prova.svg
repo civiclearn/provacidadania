@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4338ca" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" rx="16" fill="url(#bg)"/>
+  <text x="300" y="145" text-anchor="middle" font-size="72">📅</text>
+  <text x="300" y="210" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#1a1a1a">Cronologia</text>
+  <text x="300" y="245" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#7c3aed">PROVACIDADANIA.PT</text>
+</svg>

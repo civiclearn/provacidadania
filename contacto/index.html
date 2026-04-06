@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contacto — Provacidadania.pt</title>
+  <meta name="description" content="Contacte-nos com questões sobre a prova de cidadania ou a nossa plataforma de preparação. Respondemos normalmente dentro de 24 horas.">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="canonical" href="https://provacidadania.pt/contacto/">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/newhome.css">
+
+  <style>
+    .contact-main {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 4rem;
+    }
+    .contact-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0 0 0.4rem;
+    }
+    .contact-subtitle {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #666;
+      margin: 0 0 2.5rem;
+      line-height: 1.6;
+    }
+    .contact-card {
+      background: #fff;
+      border-radius: 1.2rem;
+      padding: 2.2rem 2.4rem;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+    @media (max-width: 600px) {
+      .contact-card { padding: 1.5rem 1.2rem; }
+    }
+    .form-group {
+      margin-bottom: 1.4rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.95rem;
+      color: #1a1a1a;
+      border: 1.5px solid #e0dce8;
+      border-radius: 0.7rem;
+      background: #faf9fc;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #7c3aed;
+      box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+    .ohnohoney {
+      opacity: 0;
+      position: absolute;
+      top: 0; left: 0;
+      height: 0; width: 0;
+      z-index: -1;
+    }
+    .contact-submit {
+      display: block;
+      width: 100%;
+      padding: 0.95rem;
+      background: #7c3aed;
+      color: #fff;
+      font-family: 'Lexend', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.7rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .contact-submit:hover { background: #5b21b6; }
+    .contact-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+    .contact-feedback {
+      display: none;
+      margin-top: 1.2rem;
+      padding: 1rem 1.2rem;
+      border-radius: 0.7rem;
+      font-size: 0.92rem;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+    .contact-feedback.success {
+      background: #ecfdf5; color: #166534; border: 1px solid #bbf7d0;
+    }
+    .contact-feedback.error {
+      background: #fef2f2; color: #991b1b; border: 1px solid #fecaca;
+    }
+    .contact-alt {
+      text-align: center;
+      font-size: 0.88rem;
+      color: #888;
+      margin-top: 1.8rem;
+    }
+    .contact-alt a { color: #7c3aed; text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="cl-header">
+  <div class="cl-header-inner">
+    <a href="/" class="cl-logo">
+      <img src="/assets/images/pt.svg" alt="PT" />
+      <span>Provacidadania.pt</span>
+    </a>
+    <nav class="cl-nav">
+      <a href="/teste-gratis/">Teste grátis</a>
+      <a href="/artigos/">Artigos</a>
+      <a href="/contacto/">Contacto</a>
+      <a href="https://civiclearn.com/portugal/login">Entrar</a>
+    </nav>
+    <div class="cl-right">
+      <div class="cl-powered">powered by <span>CivicLearn</span></div>
+      <a href="https://civiclearn.com/portugal/checkout" class="cl-btn">Ativar acesso</a>
+    </div>
+  </div>
+</header>
+
+
+<!-- CONTACT -->
+<main class="contact-main">
+
+  <h1 class="contact-title">Contacto</h1>
+  <p class="contact-subtitle">
+    Tem questões sobre a prova de cidadania, a nossa plataforma ou a sua conta?<br>
+    Envie-nos uma mensagem e respondemos normalmente dentro de 24 horas.
+  </p>
+
+  <div class="contact-card">
+
+    <form id="contactForm" autocomplete="on">
+
+      <!-- Honeypot -->
+      <div class="ohnohoney">
+        <input type="text" name="company" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label for="contact-name">Nome *</label>
+        <input type="text" id="contact-name" name="name" required autocomplete="name" placeholder="O seu nome">
+      </div>
+
+      <div class="form-group">
+        <label for="contact-email">E-mail *</label>
+        <input type="email" id="contact-email" name="_replyto" required autocomplete="email" placeholder="o-seu@email.pt">
+      </div>
+
+      <div class="form-group">
+        <label for="contact-message">Mensagem *</label>
+        <textarea id="contact-message" name="message" required placeholder="Descreva a sua questão ou assunto..."></textarea>
+      </div>
+
+      <button type="submit" class="contact-submit">Enviar mensagem</button>
+
+      <div id="successMessage" class="contact-feedback success">
+        Obrigado! A sua mensagem foi enviada. Respondemos o mais brevemente possível.
+      </div>
+
+      <div id="errorMessage" class="contact-feedback error">
+        Ocorreu um erro. Tente novamente ou envie e-mail diretamente para admin@civiclearn.com.
+      </div>
+
+    </form>
+
+  </div>
+
+  <p class="contact-alt">
+    Também pode contactar-nos diretamente em <a href="mailto:admin@civiclearn.com">admin@civiclearn.com</a>
+  </p>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="footer-year"></span> Provacidadania.pt — membro da rede CivicLearn.</div>
+    <div class="footer-links">
+      <a href="/teste-gratis/">Teste grátis</a>
+      <a href="/artigos/">Artigos</a>
+      <a href="/contacto/">Contacto</a>
+      <a href="/politicas/">Políticas</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  if (form.querySelector('input[name="company"]').value) return;
+
+  const success = document.getElementById("successMessage");
+  const error   = document.getElementById("errorMessage");
+  const btn     = form.querySelector('button[type="submit"]');
+
+  success.style.display = "none";
+  error.style.display   = "none";
+
+  btn.disabled = true;
+  const originalText = btn.innerText;
+  btn.innerText = "A enviar...";
+
+  const payload = {
+    site: window.location.hostname,
+    page: window.location.pathname,
+    name:    form.querySelector('input[name="name"]').value,
+    email:   form.querySelector('input[name="_replyto"]').value,
+    message: form.querySelector('textarea[name="message"]').value,
+    product: "portugal-presale"
+  };
+
+  try {
+    const res = await fetch("https://civiclearn.app.n8n.cloud/webhook/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      success.style.display = "block";
+      form.reset();
+      btn.style.display = "none";
+    } else {
+      throw new Error("Request failed");
+    }
+  } catch (err) {
+    error.style.display = "block";
+    btn.disabled = false;
+    btn.innerText = originalText;
+  }
+});
+</script>
+
+<script>
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
