@@ -341,3 +341,10 @@ h1,h2,h3,.fact-label{overflow-wrap:break-word;hyphens:manual;-webkit-hyphens:man
   .hero .exam-status-counter .count-number{font-size:1.5rem!important}
   .hero .exam-status-text{padding-top:0!important}
 }
+
+/* ---------- v2 pricing card on legacy pages (lists keep their old class for page scripts) ---------- */
+.pricing-v2 .price-right .feature-list{margin:0;padding:0;list-style:none}
+.pricing-v2 .price-right .feature-list li{padding-left:28px!important;margin:0;font-weight:400;border:0;background:none;font-size:.95rem;color:var(--ink-2)}
+.pricing-v2 .pricing-toggle-row{margin:0 auto 22px}
+.pricing-v2 .bundle-saving{margin-top:8px}
+.pricing-v2 .pricing-bonus{margin-top:16px;text-align:left}
