@@ -369,100 +369,44 @@
 
 
 <!-- FEATURES: WHAT'S INCLUDED -->
-<section class="features-section">
-
-  <div class="section-heading">
-    <div class="section-kicker">Tudo num só lugar</div>
-    <h2 class="section-title">Prepare-se eficazmente para a prova de cidadania</h2>
-    <p class="section-lead">
-      Estude com 800 perguntas, teste-se com simulações realistas e acompanhe o seu progresso tema a tema.
-    </p>
-  </div>
-
-  <div class="features-grid">
-
-    <!-- CARD 1: About the test -->
-    <div class="feature-card" onclick="location.href='/sobre-o-teste/'">
-      <a href="/sobre-o-teste/" class="feature-card-link">
-
-        <div class="feature-icon">
-          <img src="/assets/images/5.svg" alt="Sobre o teste">
-        </div>
-
-        <h3 class="feature-title">Sobre a prova de cidadania</h3>
-
-        <p class="feature-text">
-          A nova Lei da Nacionalidade exige uma prova de conhecimentos cívicos para a cidadania por naturalização. O teste abrange 5 temas sobre a história, cultura, política, direitos e sociedade de Portugal.
-        </p>
-
-        <div class="feature-cta">
-          Saiba mais <span class="arrow">›</span>
-        </div>
-
-      </a>
+<section class="section feat-v2">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Tudo num só lugar</span><h2>Prepare-se eficazmente para a prova de cidadania</h2><p>Estude com 800 perguntas, teste-se com simulações realistas e acompanhe o seu progresso tema a tema.</p></div>
+    <div class="features">
+      <div class="feature">
+        <img src="/assets/images/5.svg" alt="">
+        <h3>Sobre a prova de cidadania</h3>
+        <p>A nova Lei da Nacionalidade exige uma prova de conhecimentos cívicos para a cidadania por naturalização. O teste abrange 5 temas sobre a história, cultura, política, direitos e sociedade de Portugal.</p>
+        <a class="feat-link" href="/sobre-o-teste/">Saiba mais ›</a>
+      </div>
+      <div class="feature">
+        <img src="/assets/images/6.svg" alt="">
+        <h3>Teste grátis</h3>
+        <p>Teste os seus conhecimentos com 10 perguntas gratuitas dos 5 temas. Veja como funciona a plataforma e avalie o seu nível atual.</p>
+        <a class="feat-link" href="/teste-gratis/">Fazer teste grátis ›</a>
+      </div>
+      <div class="feature">
+        <img src="/assets/images/3.svg" alt="">
+        <h3>800 perguntas — 5 temas</h3>
+        <p>Estude ao seu ritmo com explicações em português e inglês, acompanhe o seu progresso por tema e fique pronto para o dia do exame.</p>
+        <a class="feat-link" href="https://civiclearn.com/portugal/checkout">Começar agora ›</a>
+      </div>
     </div>
-
-    <!-- CARD 2: Free Test -->
-    <div class="feature-card" onclick="location.href='/teste-gratis/'">
-      <a href="/teste-gratis/" class="feature-card-link">
-
-        <div class="feature-icon">
-          <img src="/assets/images/6.svg" alt="Teste grátis">
-        </div>
-
-        <h3 class="feature-title">Teste grátis</h3>
-
-        <p class="feature-text">
-          Teste os seus conhecimentos com 10 perguntas gratuitas dos 5 temas. Veja como funciona a plataforma e avalie o seu nível atual.
-        </p>
-
-        <div class="feature-cta">
-          Fazer teste grátis <span class="arrow">›</span>
-        </div>
-
-      </a>
-    </div>
-
-    <!-- CARD 3: Full access -->
-    <div class="feature-card" onclick="location.href='https://civiclearn.com/portugal/checkout'">
-      <a href="https://civiclearn.com/portugal/checkout" class="feature-card-link">
-
-        <div class="feature-icon">
-          <img src="/assets/images/3.svg" alt="Acesso completo">
-        </div>
-
-        <h3 class="feature-title">800 perguntas — 5 temas</h3>
-
-        <p class="feature-text">
-          Estude ao seu ritmo com explicações em português e inglês, acompanhe o seu progresso por tema e fique pronto para o dia do exame.
-        </p>
-
-        <div class="feature-cta">
-          Começar agora <span class="arrow">›</span>
-        </div>
-
-      </a>
-    </div>
-
   </div>
 </section>
 
 <!-- INLINE TEST -->
-<section class="inline-test" id="free-questions">
-  <div class="inline-test-inner">
-
-    <h2 class="inline-test-heading">Teste os seus conhecimentos</h2>
-    <p class="inline-test-lead">Vinte perguntas rápidas sobre Portugal — quanto sabe?</p>
-
-    <div id="inline-test-questions">
-      <!-- Questions loaded by hometest-provacidadania.js -->
+<section class="section quiz" id="free-questions">
+  <div class="wrap">
+    <div class="quiz-top">
+      <div class="section-head"><span class="kicker">Prática gratuita</span><h2>Teste os seus conhecimentos</h2><p>Vinte perguntas rápidas sobre Portugal — quanto sabe?</p></div>
+      <div class="quiz-actions"></div>
     </div>
-
-    <div class="inline-progressbar-wrapper">
-      <div class="inline-progressbar" id="inline-progressbar"></div>
+    <div class="progress">
+      <div id="inline-progress-text"></div>
+      <div class="progress-track"><div id="inline-progressbar"></div></div>
     </div>
-    <p id="inline-progress-text" class="inline-progress-text"></p>
-
+    <div id="inline-test-questions"></div>
   </div>
 </section>
 
@@ -516,159 +460,32 @@
 
 
 <!-- FAQ -->
-<section class="cl-faq">
-
-  <div class="section-heading">
-    <div class="section-kicker">Perguntas frequentes</div>
-    <h2 class="section-title">FAQ — Prova de Cidadania</h2>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>O que é a prova de conhecimentos cívicos?</span>
-    </div>
-    <div class="faq-answer">
-      <p>
-        A nova Lei da Nacionalidade, aprovada em abril de 2026, introduz a obrigatoriedade de uma prova
-        de conhecimentos cívicos para quem pede a cidadania portuguesa por naturalização.
-        O teste avalia conhecimentos sobre a história, cultura, organização política, e direitos
-        e deveres de Portugal.
-      </p>
+<section class="section" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div class="section-head"><span class="kicker">Perguntas frequentes</span><h2>FAQ — Prova de Cidadania</h2><p>Outra pergunta? <a href="/contacto/">Escreva-nos</a>.</p></div>
+    <div class="faq-list">
+      <details><summary>O que é a prova de conhecimentos cívicos?</summary><p> A nova Lei da Nacionalidade, aprovada em abril de 2026, introduz a obrigatoriedade de uma prova de conhecimentos cívicos para quem pede a cidadania portuguesa por naturalização. O teste avalia conhecimentos sobre a história, cultura, organização política, e direitos e deveres de Portugal. </p></details>
+      <details><summary>Isto é uma subscrição?</summary><p>Não. Um pagamento único de €49 dá-lhe acesso ilimitado a todo o conteúdo, sem qualquer subscrição. O pacote bundle (€79) inclui também o CIPLE para a prova de português.</p></details>
+      <details><summary>Que temas são abrangidos?</summary><p> O teste abrange 5 áreas temáticas: História de Portugal, Cultura e identidade nacional, Organização política e instituições, Direitos e deveres dos cidadãos, e Sociedade portuguesa. O nosso banco de perguntas cobre todos os temas com um total de 800 perguntas. </p></details>
+      <details><summary>As vossas perguntas são iguais às do teste oficial?</summary><p> O teste oficial ainda não foi regulamentado — aguarda-se a publicação da portaria que definirá o formato e conteúdo do exame. As nossas perguntas são baseadas nos temas e matérias definidos na lei aprovada (artigo 6.º da Lei da Nacionalidade). </p> <p> Não temos qualquer ligação ao Estado português. A nossa plataforma tem como único objetivo ajudá-lo a preparar-se eficazmente. </p></details>
+      <details><summary>Acabei de pagar. O que acontece agora?</summary><p> Após o pagamento, cria uma palavra-passe de imediato. É depois redirecionado para o ecrã de login. Insira o seu e-mail e a nova palavra-passe para aceder imediatamente à sua área de estudo. </p></details>
+      <details><summary>As perguntas existem em inglês?</summary><p> Sim. Todas as 800 perguntas estão disponíveis em português e em inglês. Pode alternar entre os idiomas a qualquer momento na plataforma, o que facilita o estudo se ainda está a aprender português. </p></details>
+      <details><summary>Qual é a diferença entre "Solo" e "Bundle"?</summary><p> Solo (€49) dá acesso à prova de conhecimentos cívicos — 800 perguntas, simulações e todos os modos de estudo. </p> <p> Bundle (€79) inclui tudo acima mais o CIPLE — a nossa plataforma para a prova de português, com simulações completas de compreensão e produção oral e escrita. Juntos, poupa €19 em relação à compra separada. </p></details>
+      <details><summary>Cidadãos da CPLP precisam desta prova?</summary><p> Sim. Cidadãos de países lusófonos (Brasil, Angola, Moçambique, etc.) estão dispensados do requisito de língua portuguesa, mas continuam obrigados a demonstrar conhecimentos cívicos e culturais sobre Portugal. A prova de conhecimentos cívicos aplica-se a todos os candidatos por naturalização. </p></details>
+      <details><summary>Posso usar a plataforma no telemóvel?</summary><p>Sim. A plataforma funciona em qualquer dispositivo com ligação à internet — computador, tablet ou telemóvel.</p></details>
+      <details><summary>Quanto tempo leva a preparação?</summary><p> Depende dos seus conhecimentos prévios sobre Portugal. A maioria dos utilizadores precisa de duas a quatro semanas de estudo para se sentir preparada. Recomendamos que comece com antecedência, antes de a portaria ser publicada. </p></details>
     </div>
   </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Isto é uma subscrição?</span>
-    </div>
-    <div class="faq-answer">
-      <p>Não. Um pagamento único de €49 dá-lhe acesso ilimitado a todo o conteúdo, sem qualquer subscrição. O pacote bundle (€79) inclui também o CIPLE para a prova de português.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Que temas são abrangidos?</span>
-    </div>
-    <div class="faq-answer">
-      <p>
-        O teste abrange 5 áreas temáticas: História de Portugal, Cultura e identidade nacional,
-        Organização política e instituições, Direitos e deveres dos cidadãos, e Sociedade portuguesa.
-        O nosso banco de perguntas cobre todos os temas com um total de 800 perguntas.
-      </p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>As vossas perguntas são iguais às do teste oficial?</span>
-    </div>
-    <div class="faq-answer">
-      <p>
-        O teste oficial ainda não foi regulamentado — aguarda-se a publicação da portaria que definirá
-        o formato e conteúdo do exame. As nossas perguntas são baseadas nos temas e matérias definidos
-        na lei aprovada (artigo 6.º da Lei da Nacionalidade).
-      </p>
-      <p>
-        Não temos qualquer ligação ao Estado português. A nossa plataforma tem como único objetivo
-        ajudá-lo a preparar-se eficazmente.
-      </p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Acabei de pagar. O que acontece agora?</span>
-    </div>
-    <div class="faq-answer">
-      <p>
-        Após o pagamento, cria uma palavra-passe de imediato. É depois redirecionado para o ecrã de login.
-        Insira o seu e-mail e a nova palavra-passe para aceder imediatamente à sua área de estudo.
-      </p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>As perguntas existem em inglês?</span>
-    </div>
-    <div class="faq-answer">
-      <p>
-        Sim. Todas as 800 perguntas estão disponíveis em português e em inglês. Pode alternar entre os idiomas
-        a qualquer momento na plataforma, o que facilita o estudo se ainda está a aprender português.
-      </p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Qual é a diferença entre "Solo" e "Bundle"?</span>
-    </div>
-    <div class="faq-answer">
-      <p>
-        Solo (€49) dá acesso à prova de conhecimentos cívicos — 800 perguntas, simulações e todos os modos de estudo.
-      </p>
-      <p>
-        Bundle (€79) inclui tudo acima mais o CIPLE — a nossa plataforma para a prova de português,
-        com simulações completas de compreensão e produção oral e escrita.
-        Juntos, poupa €19 em relação à compra separada.
-      </p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Cidadãos da CPLP precisam desta prova?</span>
-    </div>
-    <div class="faq-answer">
-      <p>
-        Sim. Cidadãos de países lusófonos (Brasil, Angola, Moçambique, etc.) estão dispensados do requisito
-        de língua portuguesa, mas continuam obrigados a demonstrar conhecimentos cívicos e culturais
-        sobre Portugal. A prova de conhecimentos cívicos aplica-se a todos os candidatos por naturalização.
-      </p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Posso usar a plataforma no telemóvel?</span>
-    </div>
-    <div class="faq-answer">
-      <p>Sim. A plataforma funciona em qualquer dispositivo com ligação à internet — computador, tablet ou telemóvel.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Quanto tempo leva a preparação?</span>
-    </div>
-    <div class="faq-answer">
-      <p>
-        Depende dos seus conhecimentos prévios sobre Portugal. A maioria dos utilizadores precisa
-        de duas a quatro semanas de estudo para se sentir preparada. Recomendamos que comece
-        com antecedência, antes de a portaria ser publicada.
-      </p>
-    </div>
-  </div>
-
 </section>
 
 
 <!-- FEATURED ARTICLES -->
-<section class="home-articles">
-  <div class="section-heading">
-    <div class="section-kicker">Mais para ler</div>
-    <h2 class="section-title">Artigos sobre a cidadania portuguesa</h2>
-    <p class="section-lead">
-      Contexto, dicas e tudo o que precisa de saber sobre os novos requisitos para a nacionalidade portuguesa.
-    </p>
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Mais para ler</span><h2>Artigos sobre a cidadania portuguesa</h2><p>Contexto, dicas e tudo o que precisa de saber sobre os novos requisitos para a nacionalidade portuguesa.</p></div>
+    <div class="home-articles-grid" id="homeArticlesGrid"></div>
+    <p class="articles-more"><a href="/artigos/">Ver todos os artigos →</a></p>
   </div>
-
-  <div class="home-articles-grid" id="homeArticlesGrid"></div>
-
-  <p class="home-articles-more">
-    <a href="/artigos/">Ver todos os artigos →</a>
-  </p>
 </section>
 
 
@@ -686,35 +503,32 @@
   </div>
 </section>
 
-<section class="compat-section">
-  <div class="compat-inner">
+<section style="padding:24px 0 0">
+  <div class="wrap">
 
-    <h2 class="compat-title">Compatível com todos os dispositivos e navegadores modernos</h2>
-
-    <div class="compat-grid">
-      <div class="compat-item"><img src="/assets/images/logos/windows.svg"><p>Windows</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/macos.svg"><p>macOS</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/android.svg"><p>Android</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/ios.svg"><p>iPhone / iPad</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/chrome.svg"><p>Chrome</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/safari.svg"><p>Safari</p></div>
-      <div class="compat-item"><img src="/assets/images/logos/firefox.svg"><p>Firefox</p></div>
+    <div class="devices" aria-label="Compatível com todos os dispositivos e navegadores modernos">
+      <span><img src="/assets/images/logos/windows.svg" alt="">Windows</span>
+      <span><img src="/assets/images/logos/macos.svg" alt="">macOS</span>
+      <span><img src="/assets/images/logos/android.svg" alt="">Android</span>
+      <span><img src="/assets/images/logos/ios.svg" alt="">iPhone / iPad</span>
+      <span><img src="/assets/images/logos/chrome.svg" alt="">Chrome</span>
+      <span><img src="/assets/images/logos/safari.svg" alt="">Safari</span>
+      <span><img src="/assets/images/logos/firefox.svg" alt="">Firefox</span>
     </div>
-
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="footer-inner">
+<footer class="foot">
+  <div class="wrap">
     <div>© <span id="footer-year"></span> Provacidadania.pt — membro da rede CivicLearn.</div>
-    <div class="footer-links">
+    <nav>
       <a href="https://civiclearn.com/insights">Insights</a>
       <a href="/teste-gratis/">Teste grátis</a>
       <a href="/artigos/">Artigos</a>
       <a href="/contacto/">Contacto</a>
       <a href="/politicas/">Políticas</a>
-    </div>
+    </nav>
   </div>
 </footer>
 
