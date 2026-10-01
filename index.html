@@ -48,7 +48,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/newhome.css">
-  <link rel="stylesheet" href="/assets/css/home-v2.css">
+  <link rel="stylesheet" href="https://civiclearn.com/assets/css/presale-home.css?v=2">
 
   <!-- Pricing + bundle styles -->
   <style>
@@ -535,6 +535,7 @@
 
 <!-- HOME TEST -->
 <script src="/assets/js/hometest-provacidadania.js"></script>
+<script src="https://civiclearn.com/assets/js/presale-quiz.js?v=1"></script>
 
 
 <!-- FAQ ACCORDION -->
@@ -676,23 +677,6 @@ document.querySelectorAll(".faq-item").forEach(item => {
   new IntersectionObserver(function(e){heroGone=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;upd();}).observe(h);
   if(p) new IntersectionObserver(function(e){priceVisible=e[0].isIntersecting;upd();},{threshold:.15}).observe(p);
   if(q) new IntersectionObserver(function(e){quizVisible=e[0].isIntersecting;upd();},{threshold:.05}).observe(q);
-})();
-</script>
-<script>
-/* Phones: free questions become a swipeable row and auto-advance after each answer */
-(function(){
-  var c=document.getElementById('inline-test-questions'); if(!c||!window.matchMedia) return;
-  var mq=window.matchMedia('(max-width:860px)');
-  c.addEventListener('click',function(e){
-    var b=e.target.closest&&e.target.closest('.inline-option-btn'); if(!b||!mq.matches) return;
-    var card=b.closest('.inline-question-card'); if(!card) return;
-    var wrong=!!card.querySelector('.inline-wrong');
-    setTimeout(function(){
-      var n=card.nextElementSibling; if(!n) return;
-      var pad=parseInt(getComputedStyle(c).paddingLeft,10)||0;
-      c.scrollTo({left:n.offsetLeft-pad,behavior:'smooth'});
-    }, wrong?2000:1000);
-  });
 })();
 </script>
 </body>
