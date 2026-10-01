@@ -48,6 +48,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/newhome.css">
+  <link rel="stylesheet" href="/assets/css/home-v2.css">
 
   <!-- Pricing + bundle styles -->
   <style>
@@ -277,121 +278,92 @@
 <body>
 
 <!-- HEADER -->
-<header class="cl-header">
-  <div class="cl-header-inner">
+<header class="hdr" id="hdr">
+  <div class="wrap hdr-in">
+    <a href="/" class="logo logo-long"><img alt="PT" src="/assets/images/pt.svg"/><span>Provacidadania.pt</span></a>
 
-    <a href="/" class="cl-logo">
-      <img src="/assets/images/pt.svg" alt="PT" />
-      <span>Provacidadania.pt</span>
-    </a>
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"
+      onclick="var o=document.getElementById('hdr').classList.toggle('menu-open');this.setAttribute('aria-expanded',o)">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
 
-    <nav class="cl-nav">
+    <nav class="nav" id="site-nav">
       <a href="/teste-gratis/">Teste grátis</a>
       <a href="/artigos/">Artigos</a>
       <a href="/contacto/">Contacto</a>
       <a href="https://civiclearn.com/portugal/login">Entrar</a>
     </nav>
 
-    <div class="cl-right">
-      <div class="cl-powered">
-        powered by <span>CivicLearn</span>
+    <div class="hdr-right">
+      <div class="powered">
+        <div>powered by <b>CivicLearn</b></div>
+        <a class="tp" href="https://www.trustpilot.com/review/civiclearn.com" target="_blank" rel="noopener" aria-label="CivicLearn no Trustpilot: 4,5 de 5">
+          <span class="tp-stars" aria-hidden="true">
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="25" height="25" fill="#00b67a"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+            <svg viewBox="0 0 25 25"><rect width="12.5" height="25" fill="#00b67a"/><rect x="12.5" width="12.5" height="25" fill="#dcdce6"/><path fill="#fff" d="M12.5 4.3l2.1 5.1 5.5.4-4.2 3.6 1.3 5.4-4.7-3-4.7 3 1.3-5.4-4.2-3.6 5.5-.4z"/></svg>
+          </span>
+          <span class="tp-word">Trustpilot</span>
+        </a>
       </div>
-      <a href="https://civiclearn.com/portugal/checkout" class="cl-btn">
-        Ativar acesso
-      </a>
+      <a href="https://civiclearn.com/portugal/checkout" class="btn btn-primary">Ativar acesso</a>
     </div>
-
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-
-  <!-- EXAM STATUS BAR -->
-  <section class="exam-status">
-    <div class="exam-status-inner">
-
-      <!-- ROW 1: Law status -->
-      <div class="exam-status-row">
-        <div class="exam-status-counter" id="status-law-counter">
-          <span class="count-number">✓</span>
-          <span class="count-unit"></span>
-        </div>
-
-        <div class="exam-status-text">
-          <p class="exam-status-sentence" id="status-law-text">
+  <div class="wrap hero-grid">
+    <div>
+      <section class="exam-status">
+<div class="exam-status-inner">
+<!-- ROW 1: Law status -->
+<div class="exam-status-row">
+<div class="exam-status-counter" id="status-law-counter">
+<span class="count-number">✓</span>
+<span class="count-unit"></span>
+</div>
+<div class="exam-status-text">
+<p class="exam-status-sentence" id="status-law-text">
             A Lei da Nacionalidade foi <strong>aprovada pela Assembleia da República</strong>.
             <span class="status-pill">Lei aprovada</span>
-          </p>
-        </div>
-      </div>
-
-      <!-- ROW 2: Portaria countdown -->
-      <div class="exam-status-row exam-status-row--registration">
-        <div class="exam-status-counter" id="status-portaria-counter">
-          <span class="count-number">—</span>
-          <span class="count-unit">DIAS</span>
-        </div>
-
-        <div class="exam-status-text">
-          <p class="exam-status-sentence" id="status-portaria-text">
+</p>
+</div>
+</div>
+<!-- ROW 2: Portaria countdown -->
+<div class="exam-status-row exam-status-row--registration">
+<div class="exam-status-counter" id="status-portaria-counter">
+<span class="count-number">—</span>
+<span class="count-unit">DIAS</span>
+</div>
+<div class="exam-status-text">
+<p class="exam-status-sentence" id="status-portaria-text">
             Portaria regulamentar esperada em até <strong>90 dias</strong> após promulgação.
             <span class="status-pill">Pendente</span>
-          </p>
-        </div>
+</p>
+</div>
+</div>
+</div>
+</section>
+      
+      <h1><span>Prepare-se para a prova de cidadania</span> e obtenha a nacionalidade portuguesa</h1>
+      <p class="hero-sub">800 perguntas sobre Portugal em 5 temas: história, cultura, política, direitos e sociedade. Bilingue PT/EN. Comece a estudar antes de o teste oficial ser regulamentado.</p>
+      <div class="hero-ctas">
+        <a href="https://civiclearn.com/portugal/checkout" class="btn btn-primary" id="hero-cta">Começar a preparação</a>
+        <a href="/teste-gratis/" class="btn btn-ghost">Experimentar grátis</a>
       </div>
-
-    </div>
-  </section>
-
-  <!-- HERO CENTER CONTENT -->
-  <div class="hero-center hero-center--spaced">
-
-    <h1 class="hero-title">
-      <span>Prepare-se para a prova de cidadania<br></span>
-      e obtenha a nacionalidade portuguesa
-    </h1>
-
-    <p class="hero-subtitle">
-      800 perguntas sobre Portugal em 5 temas: história, cultura, política, direitos e sociedade.<br>
-      Bilingue PT/EN. Comece a estudar antes de o teste oficial ser regulamentado.
-    </p>
-
-    <div class="hero-actions">
-      <a href="https://civiclearn.com/portugal/checkout" class="hero-primary-btn">
-        Começar a preparação
-      </a>
-      <a href="/teste-gratis/" class="hero-secondary-btn">
-        Experimentar grátis
-      </a>
-    </div>
-
-    <div class="hero-social">
-      <div class="hero-social-top">
-        <span class="rating-stars">★★★★★</span>
-        <span class="rating-word">Excelente</span>
-      </div>
-      <div class="hero-social-sub">
-        Milhares de candidatos preparados<br class="mobile-only">pela rede CivicLearn.
+      <p class="hero-meta"><strong>€49, pagamento único</strong> · acesso vitalício · sem subscrição</p>
+      <div class="rating">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <strong>Excelente</strong>
+        <span>Milhares de candidatos preparados pela rede CivicLearn.</span>
       </div>
     </div>
-
-    <style>
-      .hero-social { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; max-width: min(100%, 480px); margin: 0 auto; }
-      .hero-social-top { display: flex; align-items: center; gap: 0.4rem; }
-      .hero-social-sub { font-size: 0.88rem; color: #666; text-align: center; max-width: 100%; overflow-wrap: break-word; padding: 0 1rem; }
-      .mobile-only { display: none; }
-      @media (max-width: 820px) { .mobile-only { display: inline; } }
-      @media (min-width: 821px) {
-        .hero-social { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 0.4rem; }
-        .hero-social-sub::before { content: "· "; }
-      }
-    </style>
-
-    <div class="hero-image-wide">
-      <img src="/assets/images/devicespt.webp" alt="CivicLearn Prova de Cidadania em vários dispositivos">
+    <div class="hero-img">
+      <img src="/assets/images/devicespt.webp" alt="CivicLearn Prova de Cidadania em vários dispositivos" width="2968" height="1944" fetchpriority="high" decoding="async">
     </div>
-
   </div>
 </section>
 
@@ -476,7 +448,7 @@
 </section>
 
 <!-- INLINE TEST -->
-<section class="inline-test">
+<section class="inline-test" id="free-questions">
   <div class="inline-test-inner">
 
     <h2 class="inline-test-heading">Teste os seus conhecimentos</h2>
@@ -496,7 +468,7 @@
 
 
 <!-- PRICING -->
-<section class="premium-pricing">
+<section class="premium-pricing" id="pricing">
 
   <div class="section-heading">
     <div class="section-kicker">Preços</div>
@@ -714,6 +686,19 @@
 
 
 <!-- COMPATIBILITY -->
+<!-- CLOSING CTA -->
+<section class="closing-wrap" style="padding:24px 0 40px">
+  <div class="wrap">
+    <div class="closing">
+      <div>
+        <h2>Pronto para a prova de cidadania?</h2>
+        <p>800 perguntas sobre Portugal em 5 temas, simulações e explicações num só lugar. A partir de €49, uma única vez.</p>
+      </div>
+      <a href="https://civiclearn.com/portugal/checkout" class="btn btn-primary">Começar a preparação</a>
+    </div>
+  </div>
+</section>
+
 <section class="compat-section">
   <div class="compat-inner">
 
@@ -875,5 +860,39 @@ document.querySelectorAll(".faq-item").forEach(item => {
 })();
 </script>
 
+<!-- Mobile sticky CTA (appears once the hero button scrolls away, hides over the quiz and pricing) -->
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <span><b>€49, uma vez</b>Acesso vitalício</span>
+  <a href="https://civiclearn.com/portugal/checkout" class="btn btn-primary" tabindex="-1">Começar</a>
+</div>
+
+<script>
+(function(){
+  var s=document.getElementById('sticky-cta'), h=document.getElementById('hero-cta'), p=document.getElementById('pricing'), q=document.getElementById('free-questions');
+  if(!('IntersectionObserver' in window)||!s||!h) return;
+  var heroGone=false, priceVisible=false, quizVisible=false;
+  function upd(){var on=heroGone&&!priceVisible&&!quizVisible;s.classList.toggle('show',on);s.setAttribute('aria-hidden',on?'false':'true');}
+  new IntersectionObserver(function(e){heroGone=!e[0].isIntersecting&&e[0].boundingClientRect.top<0;upd();}).observe(h);
+  if(p) new IntersectionObserver(function(e){priceVisible=e[0].isIntersecting;upd();},{threshold:.15}).observe(p);
+  if(q) new IntersectionObserver(function(e){quizVisible=e[0].isIntersecting;upd();},{threshold:.05}).observe(q);
+})();
+</script>
+<script>
+/* Phones: free questions become a swipeable row and auto-advance after each answer */
+(function(){
+  var c=document.getElementById('inline-test-questions'); if(!c||!window.matchMedia) return;
+  var mq=window.matchMedia('(max-width:860px)');
+  c.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.inline-option-btn'); if(!b||!mq.matches) return;
+    var card=b.closest('.inline-question-card'); if(!card) return;
+    var wrong=!!card.querySelector('.inline-wrong');
+    setTimeout(function(){
+      var n=card.nextElementSibling; if(!n) return;
+      var pad=parseInt(getComputedStyle(c).paddingLeft,10)||0;
+      c.scrollTo({left:n.offsetLeft-pad,behavior:'smooth'});
+    }, wrong?2000:1000);
+  });
+})();
+</script>
 </body>
 </html>

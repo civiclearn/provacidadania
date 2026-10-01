@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
       createDonutChart() +
       "<p>Acabou de experimentar algumas das nossas perguntas de exemplo. " +
       "Tenha acesso a <strong>800 perguntas em 5 temas com explicações detalhadas</strong> e estude ao seu ritmo.</p>" +
-      '<a href="https://civiclearn.com/portugal/checkout" class="hero-primary-btn">Acesso completo</a><p class="wc-curious" style="margin-top:0.9rem;font-size:0.85rem;line-height:1.45;text-align:center;"><a href="https://civiclearn.com/insights/hardest-citizenship-questions?utm_source=provacidadania-home&amp;utm_medium=free-test&amp;utm_campaign=world-challenge" target="_blank" rel="noopener" style="color:inherit;opacity:0.75;text-decoration:underline;text-underline-offset:2px;">Só por curiosidade? Experimente as perguntas de cidadania mais difíceis do mundo (em inglês) →</a></p>';
+      '<a href="https://civiclearn.com/portugal/checkout" class="hero-primary-btn">Acesso completo</a>';
     return card;
   }
 
