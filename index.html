@@ -48,7 +48,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/newhome.css">
-  <link rel="stylesheet" href="https://civiclearn.com/assets/css/presale-home.css?v=2">
+  <link rel="stylesheet" href="https://civiclearn.com/assets/css/presale-home.css?v=9">
 
   <!-- Pricing + bundle styles -->
   <style>
@@ -419,23 +419,20 @@
       <h2>Escolha o plano ideal</h2>
       <p>Pagamento único — acesso vitalício. Sem subscrições.</p>
     </div>
-    <div class="pricing-toggle-row">
-<button class="pricing-toggle-btn active" data-plan="solo">
-      Conhecimentos Cívicos
-    </button>
-<button class="pricing-toggle-btn" data-plan="bundle">
-      Cidadania + CIPLE <span class="bundle-badge">Poupe €19</span>
-</button>
-</div>
+    
     <div class="price-card">
       <div class="price-left">
         <span class="price-tag" id="pricing-tag-text">Conhecimentos Cívicos</span>
         <div class="price-amount" id="pricing-amount">€49</div>
         <p class="price-sub">Pagamento único — acesso vitalício</p>
-        <div class="bundle-saving" id="pricing-saving">€49 + €49 = €98 → paga apenas €79</div>
         
         <a class="btn btn-primary" href="https://civiclearn.com/portugal/checkout" id="pricing-cta-link">Começar agora — €49</a>
         <p class="price-note">Pagamento único. Sem subscrições. Acesso vitalício.</p>
+        <a class="bundle-strip" href="https://civiclearn.com/portugal/checkout?plan=bundle">
+          <span class="bundle-strip-icon" aria-hidden="true">🎁</span>
+          <span class="bundle-strip-body"><span class="bundle-strip-headline" id="bsHead">+ CIPLE (português A2)</span><span class="bundle-strip-sub" id="bsSub">Adicione as simulações completas do CIPLE com avaliação IA</span></span>
+          <span class="bundle-strip-price"><span class="bundle-strip-amount">€79</span><span class="bundle-strip-save">−€19</span></span>
+        </a>
       </div>
       <div class="price-right">
         <h3>O que inclui</h3>
@@ -449,9 +446,6 @@
           <li>Modo sequencial por tema</li>
           <li>Acesso em computador, tablet e telemóvel</li>
           <li>Ativação imediata após pagamento</li>
-          <li class="bundle-extra">+ CIPLE: simulações completas de português</li>
-          <li class="bundle-extra">+ Compreensão oral e escrita, produção oral e escrita</li>
-          <li class="bundle-extra">+ Avaliação IA com feedback detalhado</li>
         </ul>
       </div>
     </div>
@@ -596,39 +590,7 @@ document.querySelectorAll(".faq-item").forEach(item => {
 </script>
 
 
-<!-- PRICING TOGGLE -->
-<script>
-(function () {
-  const btns = document.querySelectorAll(".pricing-toggle-btn");
-  const amount = document.getElementById("pricing-amount");
-  const tag = document.getElementById("pricing-tag-text");
-  const saving = document.getElementById("pricing-saving");
-  const cta = document.getElementById("pricing-cta-link");
-  const bundleExtras = document.querySelectorAll(".feature-list .bundle-extra");
-
-  function setPlan(plan) {
-    btns.forEach(b => b.classList.toggle("active", b.dataset.plan === plan));
-
-    if (plan === "bundle") {
-      amount.textContent = "€79";
-      tag.textContent = "Cidadania + CIPLE";
-      saving.classList.add("visible");
-      cta.textContent = "Começar agora — €79";
-      cta.href = "https://civiclearn.com/portugal/checkout?plan=bundle";
-      bundleExtras.forEach(el => el.classList.add("visible"));
-    } else {
-      amount.textContent = "€49";
-      tag.textContent = "Conhecimentos Cívicos";
-      saving.classList.remove("visible");
-      cta.textContent = "Começar agora — €49";
-      cta.href = "https://civiclearn.com/portugal/checkout";
-      bundleExtras.forEach(el => el.classList.remove("visible"));
-    }
-  }
-
-  btns.forEach(b => b.addEventListener("click", () => setPlan(b.dataset.plan)));
-})();
-</script>
+<!-- (old solo/bundle pricing switch removed Oct 2026: the bundle is a box under the price button) -->
 
 
 <!-- FOOTER YEAR -->
