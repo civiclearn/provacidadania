@@ -326,8 +326,8 @@
 </div>
 <div class="exam-status-text">
 <p class="exam-status-sentence" id="status-law-text">
-            A Lei da Nacionalidade foi <strong>aprovada pela Assembleia da República</strong>.
-            <span class="status-pill">Lei aprovada</span>
+            A nova Lei da Nacionalidade (Lei Orgânica n.º 1/2026) está <strong>em vigor desde 19 de maio de 2026</strong>.
+            <span class="status-pill">Lei em vigor</span>
 </p>
 </div>
 </div>
@@ -335,11 +335,11 @@
 <div class="exam-status-row exam-status-row--registration">
 <div class="exam-status-counter" id="status-portaria-counter">
 <span class="count-number">—</span>
-<span class="count-unit">DIAS</span>
+<span class="count-unit"></span>
 </div>
 <div class="exam-status-text">
 <p class="exam-status-sentence" id="status-portaria-text">
-            Portaria regulamentar esperada em até <strong>90 dias</strong> após promulgação.
+            A regulamentação da prova (formato, locais e datas) <strong>ainda não foi publicada</strong> pelo Governo — até lá, a prova não é exigida.
             <span class="status-pill">Pendente</span>
 </p>
 </div>
@@ -550,45 +550,65 @@ document.querySelectorAll(".faq-item").forEach(item => {
 
 
 <!-- ======================================================
-   PORTUGAL — PORTARIA COUNTDOWN (90 days from ~April 10 2026 promulgation)
+   PORTUGAL — STATUS DA LEI E DA PROVA (Oct 2026)
+   EDIT THE DATES BELOW ONLY.
+   - LAW_IN_FORCE: Lei Orgânica n.º 1/2026, publicada no DR a 18 de maio de 2026, em vigor desde 19 de maio de 2026.
+     O art. 4.º dava ao Governo 90 dias (até 16 de agosto de 2026) para alterar o Regulamento da Nacionalidade — ainda não aconteceu.
+   - PROVA_DATE: set it (YYYY-MM-DD) when the regulamento/portaria says from when the test is required
+     (or when the first sessions are announced). null = still waiting.
    ====================================================== -->
 <script>
+const LAW_IN_FORCE = "2026-05-19";
+const PROVA_DATE = null;   /* e.g. "2027-01-15" — leave null while the regulation is not published */
+
 (function () {
-  // Estimated: law promulgated ~April 10 2026, portaria due within 90 days → ~July 9 2026
-  const PORTARIA_DATE = "2026-07-09";
+  function dayNum(s) { var p = s.split("-"); return Date.UTC(+p[0], p[1] - 1, +p[2]) / 864e5; }
+  function daysTo(s) { var n = new Date(); return Math.round(dayNum(s) - Date.UTC(n.getFullYear(), n.getMonth(), n.getDate()) / 864e5); }
+  function fmt(s) { var p = s.split("-"); return new Date(+p[0], p[1] - 1, +p[2]).toLocaleDateString("pt-PT", { day: "numeric", month: "long", year: "numeric" }); }
+  function unit(n) { return n === 1 ? "DIA" : "DIAS"; }
 
-  function daysUntil(dateStr) {
-    const now = new Date();
-    const target = new Date(dateStr + "T00:00:00");
-    return Math.max(0, Math.ceil((target - now) / 86400000));
-  }
-
-  function dayLabel(n) {
-    return n === 1 ? "DIA" : "DIAS";
+  function set(counterId, textId, num, un, html) {
+    var c = document.getElementById(counterId), t = document.getElementById(textId);
+    if (!c || !t) return;
+    c.querySelector(".count-number").textContent = num;
+    c.querySelector(".count-unit").textContent = un;
+    t.innerHTML = html;
   }
 
   function update() {
-    const counter = document.querySelector("#status-portaria-counter");
-    if (!counter) return;
-
-    const num = counter.querySelector(".count-number");
-    const unit = counter.querySelector(".count-unit");
-
-    const d = daysUntil(PORTARIA_DATE);
-
-    if (d > 0) {
-      num.textContent = d;
-      unit.textContent = dayLabel(d);
+    /* ROW 1 — the law */
+    if (daysTo(LAW_IN_FORCE) <= 0) {
+      set("status-law-counter", "status-law-text", "\u2713", "",
+        "A nova Lei da Nacionalidade (Lei Orgânica n.º 1/2026) está <strong>em vigor desde " + fmt(LAW_IN_FORCE) + "</strong>." +
+        ' <span class="status-pill">Lei em vigor</span>');
     } else {
-      num.textContent = "✓";
-      unit.textContent = "";
-      document.getElementById("status-portaria-text").innerHTML =
-        "O prazo para publicação da portaria <strong>expirou</strong>." +
-        ' <span class="status-pill">Aguardar</span>';
+      var dl = daysTo(LAW_IN_FORCE);
+      set("status-law-counter", "status-law-text", dl, unit(dl),
+        "A nova Lei da Nacionalidade entra em vigor a <strong>" + fmt(LAW_IN_FORCE) + "</strong>." +
+        ' <span class="status-pill">Lei aprovada</span>');
+    }
+
+    /* ROW 2 — the test */
+    if (!PROVA_DATE) {
+      set("status-portaria-counter", "status-portaria-text", "\u2014", "",
+        "A regulamentação da prova (formato, locais e datas) <strong>ainda não foi publicada</strong> pelo Governo — até lá, a prova não é exigida." +
+        ' <span class="status-pill">Pendente</span>');
+      return;
+    }
+    var d = daysTo(PROVA_DATE);
+    if (d > 0) {
+      set("status-portaria-counter", "status-portaria-text", d, unit(d),
+        "A prova de cidadania passa a ser exigida a partir de <strong>" + fmt(PROVA_DATE) + "</strong>." +
+        ' <span class="status-pill">Confirmado</span>');
+    } else {
+      set("status-portaria-counter", "status-portaria-text", "\u2713", "",
+        "A prova de cidadania é exigida <strong>desde " + fmt(PROVA_DATE) + "</strong>." +
+        ' <span class="status-pill">Em vigor</span>');
     }
   }
 
-  document.addEventListener("DOMContentLoaded", update);
+  function init() { update(); setInterval(update, 30 * 60 * 1000); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })();
 </script>
 
